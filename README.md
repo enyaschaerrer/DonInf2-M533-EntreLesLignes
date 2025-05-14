@@ -16,6 +16,7 @@ First you need to get a copy of this repository, the best approach is to fork th
 ### 2. Setup your local workspace
 
 Now, each team member can configure his/her local workspace.
+coucou
 
 #### 2.1 OPTIONAL install git command line
 If you want to learn command line tools as well, you can install the git command line on your machine.
