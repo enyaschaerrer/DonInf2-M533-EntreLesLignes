@@ -1,5 +1,47 @@
 package worldmap;
 
-public class WorldMap {
+import zone.Zone;
+
+public class WorldMap{
+    private Zone [][] zones;
+
+    public WorldMap (int rows, int columns){
+        zones = new Zone [rows][columns];
+    }
+
+    public void addZone(Zone zone, int rows, int columns){
+        if(row >= 0 && row < zones.length && column >= 0 && column < zones.length){
+
+        }
+    }
+
+    public Zone getPlayerZone(Player player){
+        for(int i = 0; i < zones.length; i++){
+            for(int j = 0; j< zones[i].length; j++){
+                Zone zone = zones [i][j];
+                if(zone != null && zone.getPlayer() == player){
+                    return zone;
+
+                }
+            }
+    }
+    return null;
+}
+
+    public void setPlayerZone(Player player, int row, int column){
+
+        for(int i = 0; i < zones.length; i++){
+            for(int j = 0; j < zones[i].length; j++){
+                Zone zone = zones[i][j];
+                if(zone != null && zone.getPlayer() == player){
+                    zone.setPlayer(null);
+                }
+            }
+        }
+
+    }
+    
+
     
 }
+
