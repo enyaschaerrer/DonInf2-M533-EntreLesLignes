@@ -1,0 +1,18 @@
+public class Player{
+    Private Inventaire inventaire;
+
+    public Player(Inventaire inventaire){
+        this.inventaire = inventaire;
+
+    }
+
+    Public Inventaire getInventaire(){
+        return inventaire;
+    }
+
+    public void setInventaire(Inventaire inventaire){
+        this.inventaire = inventaire.
+    }
+
+
+}
