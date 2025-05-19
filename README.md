@@ -1,6 +1,8 @@
 # DonInf2 Starting Code
 This some boiler plate code for the DonInf2 course project. Use this code as starting point for your project.
 
+coucou
+
 ## Setup
 ### 1. Repository On Github
 First you need to get a copy of this repository, the best approach is to fork this repository. a fork is a github specific functionality, it creates your own copy of a repository. You need a github account in order to fork a repository.
@@ -16,6 +18,7 @@ First you need to get a copy of this repository, the best approach is to fork th
 ### 2. Setup your local workspace
 
 Now, each team member can configure his/her local workspace.
+coucou
 
 #### 2.1 OPTIONAL install git command line
 If you want to learn command line tools as well, you can install the git command line on your machine.
@@ -61,3 +64,4 @@ A few string manipulation examples are found in the `src/exemples` folder and ca
 Feel free to edit this README as well, it's yours :)
 The format of this file is [markdown](https://markdownlivepreview.com/)
 
+Hi thats a test. Big Love everyone. Be safe.
