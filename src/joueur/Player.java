@@ -1,4 +1,4 @@
-
+package joueur;
 
 public class Player<Inventaire>{
     private Inventaire inventaire;

@@ -8,7 +8,7 @@ public class Zone{
 
 
     public Zone(String name, String description, String state){
-        this.nom = nom;
+        this.name = name;
         this.description = description;
         this.state = state;
     }
