@@ -1,6 +1,8 @@
 package joueur;
+import inventaire.Inventaire;
 
-public class Player<Inventaire>{
+public class Player{
+    
     private Inventaire inventaire;
 
     public Player(Inventaire inventaire){
