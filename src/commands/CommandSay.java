@@ -1,3 +1,8 @@
+package commands;
+
+import player.Player;
+import zone.Zone;
+
 public class CommandSay extends Command {
     private String response;
 
@@ -7,7 +12,7 @@ public class CommandSay extends Command {
     }
 
     @Override
-    protected String doExecute(Player player, Zone zone) {
+    public String execute(Player player, Zone zone) {
         
     }
 }

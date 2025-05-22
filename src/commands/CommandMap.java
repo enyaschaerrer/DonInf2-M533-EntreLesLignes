@@ -1,24 +1,26 @@
 package commands;
 
-import joueur.Player;
 import zone.Zone;
 import worldmap.WorldMap;
+import player.Player;
 import utils.Array2Dprinter;
 import utils.IPrintable;
 
 public class CommandMap extends Command {
+
     private WorldMap worldMap;
 
 
     public CommandMap() {
-        super("map", "It display the map.");
-        this.worldMap = worldMap;
+        super("map", "It displays the map.");
+        //this.worldMap = worldMap;
     }
 
     @Override
-    protected String doExecute(Player player, Zone zone) {
-        // Récupère la carte du monde
-        Zone[][] zones = worldMap.getZones();  // méthode à ajouter si elle n'existe pas
+    public void execute(Player player, Zone zone) {
+
+        // Récupère la carte du jeu
+        Zone[][] zones = worldMap.getZones();
 
         // transformer la carte zone en genre un version qu on puisse l'afficher avec le joueur dessus
         IPrintable[][] printableMap = new IPrintable[zones.length][zones[0].length];
@@ -32,6 +34,6 @@ public class CommandMap extends Command {
         int playerRow = player.getRow();
         int playerCol = player.getColumn();
 
-        return Array2Dprinter.print2DArray(printableMap, playerRow, playerCol);
+        System.out.println(Array2Dprinter.print2DArray(printableMap, playerRow, playerCol));
     }
 }

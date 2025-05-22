@@ -1,5 +1,9 @@
+package commands;
+import player.Player;
+import zone.Zone;
+
 public interface ICommand {
-    String execute(Player player, Zone zone);  
+    void execute(Player player, Zone zone);  
     String getVerb();                          
     String getDescription();                   
 }

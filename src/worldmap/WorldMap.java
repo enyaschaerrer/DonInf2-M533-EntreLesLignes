@@ -1,40 +1,54 @@
 package worldmap;
 
-import joueur.Player;
+import player.Player;
 import zone.Zone;
 
-public class WorldMap{
-    private Zone [][] zones;
+public class WorldMap {
+    private Zone[][] zones;
 
-    public WorldMap (int rows, int columns){
-        zones = new Zone [rows][columns];
+    public WorldMap(int nbRws, int nbColumns) {
+        zones = new Zone[nbRws][nbColumns];
     }
 
-    public void addZone(Zone zone, int rows, int columns){
-        if(row >= 0 && row < zones.length && column >= 0 && column < zones.length){
-
+    public void addZone(Zone zone, int row, int column) {
+        if (row >= 0 && row < zones.length && column >= 0 && column < zones.length) {
+            zones[row][column] = zone;
         }
     }
 
-    public Zone getPlayerZone(Player player){
-        for(int i = 0; i < zones.length; i++){
-            for(int j = 0; j< zones[i].length; j++){
-                Zone zone = zones [i][j];
-                if(zone != null && zone.getPlayer() == player){
+    public Zone getZone(int row, int column) {
+        for (int i = 0; i < zones.length; i++) {
+            for (int j = 0; j < zones[i].length; j++) {
+                if (zones[i][j] == zones[row][column]) {
+                    return zones[i][j];
+                }
+            }
+        }
+        return null;
+    }
+
+    // a revoir
+    public Zone getPlayerZone(Player player) {
+        for (int i = 0; i < zones.length; i++) {
+            for (int j = 0; j < zones[i].length; j++) {
+                Zone zone = zones[i][j]; // ???
+                if (zone != null && zone.getPlayer() == player) {
                     return zone;
 
                 }
             }
+        }
+        return null;
     }
-    return null;
-}
 
-    public void setPlayerZone(Player player, int row, int column){
 
-        for(int i = 0; i < zones.length; i++){
-            for(int j = 0; j < zones[i].length; j++){
+    // a revoir
+    public void setPlayerZone(Player player, int row, int column) {
+
+        for (int i = 0; i < zones.length; i++) {
+            for (int j = 0; j < zones[i].length; j++) {
                 Zone zone = zones[i][j];
-                if(zone != null && zone.getPlayer() == player){
+                if (zone != null && zone.getPlayer() == player) {
                     zone.setPlayer(null);
                 }
             }
@@ -43,10 +57,7 @@ public class WorldMap{
     }
 
     public Zone[][] getZones() {
-    return zones;
-    }   
-    
+        return this.zones;
+    }
 
-    
 }
-

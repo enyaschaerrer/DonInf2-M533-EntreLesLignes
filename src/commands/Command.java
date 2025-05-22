@@ -1,5 +1,9 @@
+package commands;
+import player.Player;
+import zone.Zone;
+
 public abstract class Command implements ICommand {
-    protected String verb;
+    protected String verb; // unique
     protected String description;
 
     public Command(String verb, String description) {
@@ -15,9 +19,10 @@ public abstract class Command implements ICommand {
         return description;
     }
 
+    // ?
     protected boolean canExecute(Player player, Zone zone) {
         return true; 
     }
 
-    protected abstract String doExecute(Player player, Zone zone);
+    public abstract void execute(Player player, Zone zone);
 }

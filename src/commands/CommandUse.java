@@ -1,3 +1,7 @@
+package commands;
+import player.Player;
+import zone.Zone;
+
 public class CommandUse extends Command {
     private String objectName;
 
@@ -7,6 +11,6 @@ public class CommandUse extends Command {
     }
 
     @Override
-    protected String doExecute(Player player, Zone zone) {
+    public String execute(Player player, Zone zone) {
         
 }
