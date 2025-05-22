@@ -1,7 +1,9 @@
 package zone;
 
+import utils.IPrintable;
 
-public class Zone{
+
+public class Zone implements IPrintable{
     private String name;
     private String description;
     private String state;

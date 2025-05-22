@@ -7,6 +7,6 @@ public class CommandInspect extends Command {
     }
 
     @Override
-    protected String doExecute(Player player, Zone zone) {
+    protected String doExecute(Player player, Zone zone) {}
         
 }

@@ -1,5 +1,6 @@
 package worldmap;
 
+import joueur.Player;
 import zone.Zone;
 
 public class WorldMap{
@@ -40,6 +41,10 @@ public class WorldMap{
         }
 
     }
+
+    public Zone[][] getZones() {
+    return zones;
+    }   
     
 
     
