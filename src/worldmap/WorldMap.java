@@ -1,63 +1,47 @@
 package worldmap;
 
-import player.Player;
 import zone.Zone;
 
 public class WorldMap {
-    private Zone[][] zones;
+    
+    private static Zone[][] zones;
 
-    public WorldMap(int nbRws, int nbColumns) {
-        zones = new Zone[nbRws][nbColumns];
+    public WorldMap(int nbRows, int nbColumns) {
+        zones = new Zone[nbRows][nbColumns];
     }
 
     public void addZone(Zone zone, int row, int column) {
-        if (row >= 0 && row < zones.length && column >= 0 && column < zones.length) {
+        if (row >= 0 && row < zones.length && column >= 0 && column < zones[0].length) {
             zones[row][column] = zone;
         }
     }
 
-    public Zone getZone(int row, int column) {
-        for (int i = 0; i < zones.length; i++) {
-            for (int j = 0; j < zones[i].length; j++) {
-                if (zones[i][j] == zones[row][column]) {
-                    return zones[i][j];
-                }
-            }
+    public static Zone getZone(int row, int column) {
+        if (row >= 0 && row < zones.length && column >= 0 && column < zones[0].length) {
+            return zones[row][column];
         }
         return null;
     }
 
-    // a revoir
-    public Zone getPlayerZone(Player player) {
-        for (int i = 0; i < zones.length; i++) {
-            for (int j = 0; j < zones[i].length; j++) {
-                Zone zone = zones[i][j]; // ???
-                if (zone != null && zone.getPlayer() == player) {
-                    return zone;
+    public static Zone[][] getZones() {
+        return zones;
+    }
 
-                }
-            }
+    // retourne la zone voisine dans une direction donnée
+    public static Zone getAdjacentZone(Zone currentZone, String direction) {
+        int currentRow = currentZone.getX();
+        int currentCol = currentZone.getY();
+
+        switch (direction.toLowerCase()) {
+            case "north": return getZone(currentRow - 1, currentCol);
+            case "south": return getZone(currentRow + 1, currentCol);
+            case "east":  return getZone(currentRow, currentCol + 1);
+            case "west":  return getZone(currentRow, currentCol - 1);
+            default: return null;
         }
-        return null;
     }
 
-
-    // a revoir
-    public void setPlayerZone(Player player, int row, int column) {
-
-        for (int i = 0; i < zones.length; i++) {
-            for (int j = 0; j < zones[i].length; j++) {
-                Zone zone = zones[i][j];
-                if (zone != null && zone.getPlayer() == player) {
-                    zone.setPlayer(null);
-                }
-            }
-        }
-
+    public static Zone getStartingZone() {
+        return getZone(1, 1); // Position de départ
     }
-
-    public Zone[][] getZones() {
-        return this.zones;
-    }
-
 }

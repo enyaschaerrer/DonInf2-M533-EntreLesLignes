@@ -6,12 +6,16 @@ public class Zone implements IPrintable {
 
     private String name;
     private String description;
-    private String state;
+    private boolean locked;
 
-    public Zone(String name, String description, String state) {
+    // Coordonnées optionnelles, utiles pour la carte
+    private int x;
+    private int y;
+
+    public Zone(String name, String description, boolean locked) {
         this.name = name;
         this.description = description;
-        this.state = state;
+        this.locked = locked;
     }
 
     public String getName() {
@@ -22,28 +26,36 @@ public class Zone implements IPrintable {
         return description;
     }
 
-    public String getState() {
-        return state;
+    public boolean isLocked() {
+        return locked;
     }
 
     public void unlock() {
-        this.state = "unlocked";
+        this.locked = false;
     }
 
     public void lock() {
-        this.state = "locked";
+        this.locked = true;
     }
 
-    // A FAIRE 
-    
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     @Override
-    public String getPrintableString(){
-    
+    public String getPrintableString() {
+        // première lettre nom zone, en majuscule
+        return name.substring(0, 1).toUpperCase();
     }
 
     @Override
     public boolean isGrayedOut() {
-
+        // si zone verrouillée = grise
+        return locked;
     }
 
 }

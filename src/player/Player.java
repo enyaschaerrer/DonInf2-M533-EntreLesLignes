@@ -6,9 +6,9 @@ import zone.Zone;
 public class Player {
 
     private Inventaire inventaire;
-    private Zone zone;
-    private int row;
-    private int column;
+    private Zone currentZone;
+    //private int row;
+    //private int column;
 
     public Player(Inventaire inventaire) {
         this.inventaire = inventaire;
@@ -22,20 +22,12 @@ public class Player {
         this.inventaire = inventaire;
     }
 
-    public int getRow(){
-        return this.row;
+    public Zone getCurrentZone() {
+        return currentZone;
     }
 
-    public int getColumn(){
-        return this.column;
-    }
-
-    public Zone getPlayerZone(){
-        return this.zone;
-    }
-
-    // jsp encore cmt faire
-    public void setPlayerZone(Zone zone){
+    public void setCurrentZone(Zone zone) {
+        this.currentZone = zone;
     }
 
 }

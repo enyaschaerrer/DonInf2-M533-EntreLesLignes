@@ -1,4 +1,5 @@
 package commands;
+import main.Game;
 import player.Player;
 import zone.Zone;
 
@@ -19,10 +20,6 @@ public abstract class Command implements ICommand {
         return description;
     }
 
-    // ?
-    protected boolean canExecute(Player player, Zone zone) {
-        return true; 
-    }
-
-    public abstract void execute(Player player, Zone zone);
+    public abstract void execute(Game game, String[] args);
+    
 }

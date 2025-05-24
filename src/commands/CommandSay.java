@@ -1,5 +1,6 @@
 package commands;
 
+import main.Game;
 import player.Player;
 import zone.Zone;
 
@@ -12,7 +13,7 @@ public class CommandSay extends Command {
     }
 
     @Override
-    public String execute(Player player, Zone zone) {
+    public void execute(Game game, String[] args) {
         
     }
 }

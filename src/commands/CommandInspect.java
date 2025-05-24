@@ -1,5 +1,6 @@
 package commands;
 
+import main.Game;
 import objet.Cle;
 import objet.Lettre;
 import objet.Objet;
@@ -16,7 +17,7 @@ public class CommandInspect extends Command {
     }
 
     @Override
-    public void execute(Player player, Zone zone) {
+    public void execute(Game game, String[] args) {
         if (this.object instanceof Cle) {
             System.out.println("L'objet est une clé pour la zone " + this.object.getZone());
         } else if (this.object instanceof Lettre) {

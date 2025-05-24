@@ -1,5 +1,6 @@
 package commands;
 
+import main.Game;
 import player.Player;
 import zone.Zone;
 
@@ -13,7 +14,7 @@ public class CommandHelp extends Command {
     }
 
     @Override
-    public void execute(Player player, Zone zone) {
+    public void execute(Game game, String[] args) {
         
         String result = registry.afficherCommandes();
         System.out.println(result);
