@@ -13,14 +13,14 @@ public class Cle extends Objet {
         // si zone (objet) correspond a clé en args ????
 
         zone.unlock();
-        System.out.println("La zone " + zone.getName() + " est déverouillée. ");
+        System.out.println("The zone " + zone.getName() + " is unlocked. ");
     }
 
     @Override
     public String inspect(Objet objet) {
 
         if (objet instanceof Cle) {
-            return "L'objet est une clé. ";
+            return "The object is a key. ";
         }
         return null;
     }

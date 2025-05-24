@@ -22,11 +22,11 @@ public class CommandLook extends Command {
             System.out.println(zone.getDescription());
             
         } else {
-            System.out.println("Dans ta zone se trouve ");
+            System.out.println("In your game area there is "); 
 
             for (Objet obj : game.getObjects()) {
                 if (obj.getZone().equals(this.zone)) {
-                    System.out.println("un(e) " + obj.inspect(obj));
+                    System.out.println("a " + obj.inspect(obj));
                 }
             }
         }

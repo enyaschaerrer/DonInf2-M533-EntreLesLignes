@@ -16,7 +16,7 @@ public class Lettre extends Objet{
     public String inspect(Objet objet) {
 
         if (objet instanceof Lettre) {
-            return "L'objet est une lettre. ";
+            return "The object is a letter. ";
         }
         return null;
     }

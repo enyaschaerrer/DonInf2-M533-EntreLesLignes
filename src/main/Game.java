@@ -26,11 +26,11 @@ public class Game {
         System.out.println("Initializing game...");
 
         // création de zones
-        Zone desert = new Zone("désert", "étendue de sable", true);
-        Zone foret = new Zone("forêt", "étendue de sapins", true);
-        Zone lac = new Zone("lac", "étendue d'eau profonde", true);
-        Zone etang = new Zone("étang", "étendue d'eau stagnante", true);
-        Zone montagne = new Zone("montagne", "pic rocheux", true);
+        Zone desert = new Zone("deset", "expanse of sand", true);
+        Zone foret = new Zone("forest", "expanse of fir trees", true);
+        Zone lac = new Zone("lake", "deep water body", true);
+        Zone etang = new Zone("pond", "body of stagnant water", true);
+        Zone montagne = new Zone("mountains", "rocky peak", true);
 
         // ajout des zones a la map
         worldMap.addZone(desert, 1, 1);

@@ -19,9 +19,9 @@ public class CommandInspect extends Command {
     @Override
     public void execute(Game game, String[] args) {
         if (this.object instanceof Cle) {
-            System.out.println("L'objet est une clé pour la zone " + this.object.getZone());
+            System.out.println("The object is a key for the area : " + this.object.getZone());
         } else if (this.object instanceof Lettre) {
-            System.out.println("L'objet est une lettre pour la zone " + this.object.getZone());
+            System.out.println("The object is a letter for the area : " + this.object.getZone());
         }
     }
 }
