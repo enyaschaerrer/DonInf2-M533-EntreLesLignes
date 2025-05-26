@@ -49,7 +49,7 @@ public class Zone implements IPrintable {
     @Override
     public String getPrintableString() {
         // première lettre nom zone, en majuscule
-        return name.substring(0, 1).toUpperCase();
+        return this.getName();
     }
 
     @Override
