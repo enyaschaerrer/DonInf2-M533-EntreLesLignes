@@ -16,7 +16,7 @@ public class CommandMove extends Command {
 
         if (args.length == 0) {
 
-            System.out.println("Please specify a direction: north, south, east, or west.");
+            System.out.println("Usage: move <north|south|east|west>");
             return;
 
         } else {

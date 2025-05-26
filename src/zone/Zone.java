@@ -7,15 +7,15 @@ public class Zone implements IPrintable {
     private String name;
     private String description;
     private boolean locked;
-
-    // Coordonnées optionnelles, utiles pour la carte
     private int x;
     private int y;
 
-    public Zone(String name, String description, boolean locked) {
+    public Zone(String name, String description, boolean locked, int x, int y) {
         this.name = name;
         this.description = description;
         this.locked = locked;
+        this.x = x;
+        this.y = y;
     }
 
     public String getName() {
