@@ -1,16 +1,12 @@
 package main;
 
-import java.util.*;
-
 import commands.Command;
 import commands.CommandHelp;
-import commands.CommandInspect;
-import commands.CommandLook;
 import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
 import inventaire.Inventaire;
-import javax.sound.sampled.SourceDataLine;
+import java.util.*;
 import objet.Objet;
 import player.Player;
 import worldmap.WorldMap;
@@ -118,5 +114,7 @@ public class Game {
     public WorldMap getWorldMap() {
         return this.worldMap;
     }
+
+   
 
 }
