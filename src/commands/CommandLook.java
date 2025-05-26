@@ -2,7 +2,6 @@ package commands;
 
 import main.Game;
 import objet.Objet;
-import player.Player;
 import zone.Zone;
 
 public class CommandLook extends Command {
