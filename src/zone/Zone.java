@@ -1,5 +1,8 @@
 package zone;
 
+import java.util.ArrayList;
+import java.util.List;
+import objet.Objet;
 import utils.IPrintable;
 
 public class Zone implements IPrintable {
@@ -7,6 +10,7 @@ public class Zone implements IPrintable {
     private String name;
     private String description;
     private boolean locked;
+
     private int x;
     private int y;
 
@@ -56,6 +60,28 @@ public class Zone implements IPrintable {
     public boolean isGrayedOut() {
         // si zone verrouillée = grise
         return locked;
+    }
+
+    // code pour la liste d'objects qui sont dans les zones
+    public void addObjet(Objet objet) {
+        objets.add(objet);
+    }
+
+    public void removeObjet(Objet objet) {
+        objets.remove(objet);
+    }
+
+    public Objet getObjetByName(String name) {
+        for (Objet objet : objets) {
+            if (objet.getClass().getSimpleName().equalsIgnoreCase(name)) {
+                return objet;
+            }
+        }
+        return null;
+    }
+
+    public List<Objet> getObjets() {
+        return objets;
     }
 
 }

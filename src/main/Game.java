@@ -40,9 +40,12 @@ public class Game {
         Inventaire inventaire = new Inventaire(objPlayer);
 
         player = new Player(inventaire);
-        
+
         desert.unlock(); // car joueur commence là
         player.setCurrentZone(pond); // zone 1 - CA MARCHE PAS
+        desert.unlock(); // car joueur commence là du coup la zone est débloquée pour que le joueur
+                         // puisse commencer la
+        player.setCurrentZone(desert); // zone 1 - CA MARCHE PAS
 
         // ajoute les commandes
         registry = new CommandRegistry();
@@ -81,6 +84,7 @@ public class Game {
 
             // a revoir
             if (command != null) {
+
                 command.execute(this, args);
 
             } else {
@@ -106,7 +110,5 @@ public class Game {
     public WorldMap getWorldMap() {
         return this.worldMap;
     }
-
-   
 
 }
