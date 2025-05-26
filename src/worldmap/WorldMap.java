@@ -10,9 +10,9 @@ public class WorldMap {
         zones = new Zone[nbRows][nbColumns];
     }
 
-    public void addZone(Zone zone, int row, int column) {
-        if (row >= 0 && row < zones.length && column >= 0 && column < zones[0].length) {
-            zones[row][column] = zone;
+    public void addZone(Zone zone) {
+        if (zone.getX() >= 0 && zone.getX() < zones.length && zone.getY() >= 0 && zone.getY() < zones[0].length) {
+            zones[zone.getX()][zone.getY()] = zone;
         }
     }
 
