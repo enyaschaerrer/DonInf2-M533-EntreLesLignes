@@ -13,5 +13,6 @@ public class CommandTake extends Command {
 
     @Override
     public void execute(Game game, String[] args) {
+        // ca doit mettre dans l'inventaire
     }
 }

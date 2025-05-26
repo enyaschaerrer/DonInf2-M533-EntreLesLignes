@@ -10,7 +10,8 @@ public class Cle extends Objet {
 
     public void unlockZone(Cle cle, Zone zone) {
 
-        // si zone (objet) correspond a clé en args ????
+ //elle doit être dans l'inventaire
+
 
         zone.unlock();
         System.out.println("The zone " + zone.getName() + " is unlocked. ");

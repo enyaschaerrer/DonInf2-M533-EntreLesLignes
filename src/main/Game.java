@@ -46,7 +46,7 @@ public class Game {
         player = new Player(inventaire);
 
         desert.unlock(); // car joueur commence là
-        player.setCurrentZone(desert); // zone 1 - CA MARCHE PAS
+        player.setCurrentZone(pond); // zone 1 - CA MARCHE PAS
 
         // ajoute les commandes
         registry = new CommandRegistry();
@@ -68,18 +68,31 @@ public class Game {
 
         while (true) {
             System.out.print("> ");
+
+            // .trim() enlève les espaces en début et fin de la saisie
             String input = scanner.nextLine().trim();
             if (input.isEmpty())
                 continue;
 
+            // sépare saisie en plusieurs mots
             String[] parts = input.split("\\s+");
+
+            // nom de la commande (move/ map...)
             String commandName = parts[0];
+
+            // ?
             String[] args = Arrays.copyOfRange(parts, 1, parts.length);
 
             Command command = registry.getCommand(commandName); // regarder getCommand
 
             // a revoir
             if (command != null) {
+
+                if (command instanceof CommandMove) {
+                    
+                }
+
+
                 command.execute(this, args);
             } else {
                 System.out.println("Command unknown. Say 'help' to get the list of all the commands available.");
