@@ -1,5 +1,6 @@
 package worldmap;
 
+import joueur.Player;
 import zone.Zone;
 
 public class WorldMap {
