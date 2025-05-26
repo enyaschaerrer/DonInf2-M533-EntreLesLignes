@@ -25,22 +25,26 @@ public class CommandInspect extends Command {
         } else if (this.object instanceof Lettre) {
             System.out.println("The object is a letter for the area : " + this.object.getZone());
         }
+    }
 
+        /*
         Player player = game.getPlayer();
 
-        for (Objet obj : player.getInventaire().getObjets()) {
-            if (obj.getClass().getSimpleName().equalsIgnoreCase(objectName)) {
-                System.out.println(obj.inspect(obj));
-                return;
-            }
-        }
+         * for (Objet obj : player.getInventaire().getObjets()) {
+         * if (obj.getClass().getSimpleName().equalsIgnoreCase(objectName)) {
+         * System.out.println(obj.inspect(obj));
+         * return;
+         * }
+         * }
+         * 
+         * System.out.println("You don’t have that object.");
+         * }
+         * 
+         * // la je veux faire une methode pour acceder a la liste
+         * public List<Objet> getObjets() {
+         * return objets;
+         * }
+         */
 
-        System.out.println("You don’t have that object.");
     }
 
-    // la je veux faire une methode pour acceder a la liste
-    public List<Objet> getObjets() {
-        return objets;
-    }
-
-}

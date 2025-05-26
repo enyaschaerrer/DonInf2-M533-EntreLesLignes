@@ -7,6 +7,8 @@ import utils.IPrintable;
 
 public class Zone implements IPrintable {
 
+    // ajouter liste d'objets
+
     private String name;
     private String description;
     private boolean locked;

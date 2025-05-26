@@ -1,12 +1,11 @@
 package commands;
 
 import main.Game;
-
-
-
+import objet.Cle;
+import objet.Objet;
 import player.Player;
 import zone.Zone;
-import.inventaire.Inventaire;
+import inventaire.Inventaire;
 
 public class CommandTake extends Command {
     private String objectName;
@@ -29,20 +28,6 @@ public class CommandTake extends Command {
             System.out.println("You picked up: " + objectName);
         } else {
             System.out.println("There is no object here with that name.");
-        }
-    }
-
-    private void ajouterCle(Game game, String zone) {
-        try {
-            
-            Cle nouvelleCle = new Cle(zone);
-            
-            game.getObjects().addLast(nouvelleCle);
-            
-            System.out.println("✓ Clé pour la zone '" + zone + "' ajoutée à votre inventaire!");
-            
-        } catch (Exception e) {
-            System.out.println("Erreur lors de l'ajout de la clé: " + e.getMessage());
         }
     }
 }
