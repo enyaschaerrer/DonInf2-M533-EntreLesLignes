@@ -2,7 +2,6 @@ package inventaire;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import objet.Cle;
 import objet.Lettre;
 import objet.Objet;
@@ -33,5 +32,14 @@ public class Inventaire {
                 System.out.println("Une lettre pour la zone " + objets.get(i).getZone());
             }
         }
+    }
+
+    public Cle getCle(String zone) {
+        for (Objet objet : this.objets) {
+            if (objet instanceof Cle && objet.getZone().equals(zone)) {
+                return (Cle) objet;
+            }
+        }
+        return null;
     }
 }
