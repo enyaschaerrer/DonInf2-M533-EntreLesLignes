@@ -1,5 +1,7 @@
 package commands;
+
 import main.Game;
+import objet.Objet;
 import player.Player;
 import zone.Zone;
 
@@ -13,6 +15,17 @@ public class CommandTake extends Command {
 
     @Override
     public void execute(Game game, String[] args) {
-        // ca doit mettre dans l'inventaire
+        Player player = game.getPlayer(); // récupère le joueur
+        Zone currentZone = player.getCurrentZone(); // zone où il se trouve
+
+        Objet objet = currentZone.getObjetByName(objectName); // cherche l'objet dans la zone
+
+        if (objet != null) {
+            player.getInventaire().addObjet(objet); // ajoute à l'inventaire
+            currentZone.removeObjet(objet); // enlève de la zone
+            System.out.println("You picked up: " + objectName);
+        } else {
+            System.out.println("There is no object here with that name.");
+        }
     }
 }

@@ -41,14 +41,11 @@ public class Game {
 
         player = new Player(inventaire);
 
-<<<<<<< HEAD
         desert.unlock(); // car joueur commence là
         player.setCurrentZone(pond); // zone 1 - CA MARCHE PAS
-=======
         desert.unlock(); // car joueur commence là du coup la zone est débloquée pour que le joueur
                          // puisse commencer la
         player.setCurrentZone(desert); // zone 1 - CA MARCHE PAS
->>>>>>> Nuno
 
         // ajoute les commandes
         registry = new CommandRegistry();
@@ -91,9 +88,8 @@ public class Game {
             if (command != null) {
 
                 if (command instanceof CommandMove) {
-                    
-                }
 
+                }
 
                 command.execute(this, args);
             } else {
