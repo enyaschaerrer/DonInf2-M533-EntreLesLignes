@@ -1,5 +1,7 @@
 package joueur;
 
+import inventaire.Inventaire;
+
 
 public class Player{
     private Inventaire inventaire;
