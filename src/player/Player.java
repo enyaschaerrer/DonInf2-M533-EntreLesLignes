@@ -7,9 +7,7 @@ public class Player {
 
     private Inventaire inventaire;
     private Zone currentZone;
-    //private int row;
-    //private int column;
-
+    
     public Player(Inventaire inventaire) {
         this.inventaire = inventaire;
     }

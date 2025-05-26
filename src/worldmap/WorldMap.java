@@ -42,6 +42,6 @@ public class WorldMap {
     }
 
     public static Zone getStartingZone() {
-        return getZone(1, 1); // Position de départ
+        return getZone(0, 0); // Position de départ
     }
 }

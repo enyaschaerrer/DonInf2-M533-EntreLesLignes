@@ -25,32 +25,39 @@ public class Game {
 
     public Game() {
         System.out.println("Initializing game...");
-        System.out.println("Ceci est juste un test pour tester sur mon PC ;)");
 
         // création de zones
-        Zone desert = new Zone("deset", "expanse of sand", true);
-        Zone foret = new Zone("forest", "expanse of fir trees", true);
-        Zone lac = new Zone("lake", "deep water body", true);
-        Zone etang = new Zone("pond", "body of stagnant water", true);
-        Zone montagne = new Zone("mountains", "rocky peak", true);
+        Zone desert = new Zone("desert", "expanse of sand", true);
+        Zone forest = new Zone("forest", "expanse of fir trees", true);
+        Zone lake = new Zone("lake", "deep water body", true);
+        Zone pond = new Zone("pond", "body of stagnant water", true);
+        Zone mountains = new Zone("mountains", "rocky peaks", true);
 
         // ajout des zones a la map
-        worldMap.addZone(desert, 1, 1);
-        worldMap.addZone(foret, 1, 2);
-        worldMap.addZone(lac, 1, 3);
-        worldMap.addZone(etang, 2, 1);
-        worldMap.addZone(montagne, 2, 2);
+        worldMap.addZone(desert, 0, 0);
+        worldMap.addZone(forest, 0, 1);
+        worldMap.addZone(lake, 0, 2);
+        worldMap.addZone(pond, 0, 3);
+        worldMap.addZone(mountains, 1, 0);
 
         List<Objet> objPlayer = null;
         Inventaire inventaire = new Inventaire(objPlayer);
 
         player = new Player(inventaire);
-        player.setCurrentZone(desert); // zone 1
 
-        // pas sure
+        desert.unlock(); // car joueur commence là
+        player.setCurrentZone(desert); // zone 1 - CA MARCHE PAS
+
+        // ajoute les commandes
         registry = new CommandRegistry();
-        CommandHelp help = new CommandHelp(registry);
-        registry.registerCommand(help);
+        CommandHelp cmdHelp = new CommandHelp(registry);
+        registry.registerCommand(cmdHelp);
+
+        CommandMap cmdMap = new CommandMap();
+        registry.registerCommand(cmdMap);
+
+        CommandMove cmdMove = new CommandMove();
+        registry.registerCommand(cmdMove);
 
     }
 
@@ -69,7 +76,9 @@ public class Game {
             String commandName = parts[0];
             String[] args = Arrays.copyOfRange(parts, 1, parts.length);
 
-            Command command = registry.get(commandName);
+            Command command = registry.getCommand(commandName); // regarder getCommand
+
+            // a revoir
             if (command != null) {
                 command.execute(this, args);
             } else {
@@ -78,7 +87,8 @@ public class Game {
         }
     }
 
-    }
+    // méthode afficher carte ?
+
 
     public Player getPlayer() {
         return this.player;
