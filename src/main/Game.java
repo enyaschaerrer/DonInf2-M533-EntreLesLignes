@@ -1,16 +1,12 @@
 package main;
 
-import java.util.*;
-
 import commands.Command;
 import commands.CommandHelp;
-import commands.CommandInspect;
-import commands.CommandLook;
 import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
 import inventaire.Inventaire;
-import javax.sound.sampled.SourceDataLine;
+import java.util.*;
 import objet.Objet;
 import player.Player;
 import worldmap.WorldMap;
@@ -45,8 +41,14 @@ public class Game {
 
         player = new Player(inventaire);
 
+<<<<<<< HEAD
         desert.unlock(); // car joueur commence là
         player.setCurrentZone(pond); // zone 1 - CA MARCHE PAS
+=======
+        desert.unlock(); // car joueur commence là du coup la zone est débloquée pour que le joueur
+                         // puisse commencer la
+        player.setCurrentZone(desert); // zone 1 - CA MARCHE PAS
+>>>>>>> Nuno
 
         // ajoute les commandes
         registry = new CommandRegistry();
@@ -101,7 +103,6 @@ public class Game {
     }
 
     // méthode afficher carte ?
-
 
     public Player getPlayer() {
         return this.player;

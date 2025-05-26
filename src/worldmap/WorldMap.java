@@ -1,10 +1,9 @@
 package worldmap;
 
-import joueur.Player;
 import zone.Zone;
 
 public class WorldMap {
-    
+
     private static Zone[][] zones;
 
     public WorldMap(int nbRows, int nbColumns) {
@@ -34,11 +33,16 @@ public class WorldMap {
         int currentCol = currentZone.getY();
 
         switch (direction.toLowerCase()) {
-            case "north": return getZone(currentRow - 1, currentCol);
-            case "south": return getZone(currentRow + 1, currentCol);
-            case "east":  return getZone(currentRow, currentCol + 1);
-            case "west":  return getZone(currentRow, currentCol - 1);
-            default: return null;
+            case "north":
+                return getZone(currentRow - 1, currentCol);
+            case "south":
+                return getZone(currentRow + 1, currentCol);
+            case "east":
+                return getZone(currentRow, currentCol + 1);
+            case "west":
+                return getZone(currentRow, currentCol - 1);
+            default:
+                return null;
         }
     }
 
