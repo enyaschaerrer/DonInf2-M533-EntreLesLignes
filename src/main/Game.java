@@ -10,6 +10,7 @@ import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
 import inventaire.Inventaire;
+import javax.sound.sampled.SourceDataLine;
 import objet.Objet;
 import player.Player;
 import worldmap.WorldMap;
@@ -24,6 +25,7 @@ public class Game {
 
     public Game() {
         System.out.println("Initializing game...");
+        System.out.println("Ceci est juste un test pour tester sur mon PC ;)");
 
         // création de zones
         Zone desert = new Zone("deset", "expanse of sand", true);
@@ -49,7 +51,6 @@ public class Game {
         registry = new CommandRegistry();
         CommandHelp help = new CommandHelp(registry);
         registry.registerCommand(help);
-        
 
     }
 
@@ -61,7 +62,8 @@ public class Game {
         while (true) {
             System.out.print("> ");
             String input = scanner.nextLine().trim();
-            if (input.isEmpty()) continue;
+            if (input.isEmpty())
+                continue;
 
             String[] parts = input.split("\\s+");
             String commandName = parts[0];
@@ -75,7 +77,6 @@ public class Game {
             }
         }
     }
-
 
     }
 
