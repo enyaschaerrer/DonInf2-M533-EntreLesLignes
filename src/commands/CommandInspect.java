@@ -3,48 +3,32 @@ package commands;
 import java.util.List;
 
 import main.Game;
-import objet.Cle;
-import objet.Lettre;
+import objet.Key;
+import objet.Letter;
 import objet.Objet;
 import player.Player;
 import zone.Zone;
 
 public class CommandInspect extends Command {
 
-    private Objet object;
-
-    public CommandInspect(Objet object) {
+    public CommandInspect() {
         super("inspect", "Command to inspect an object.");
-        this.object = object;
     }
 
     @Override
     public void execute(Game game, String[] args) {
-        if (this.object instanceof Cle) {
-            System.out.println("The object is a key for the area : " + this.object.getZone());
-        } else if (this.object instanceof Lettre) {
-            System.out.println("The object is a letter for the area : " + this.object.getZone());
+
+        Player player = game.getPlayer(); // récupère le joueur
+        Zone currentZone = player.getCurrentZone(); // zone où il se trouve
+        String objectName = args[0];
+        Objet object = player.getCurrentZone().getObjetByName(objectName); // cherche l'objet dans l'inventaire
+
+        if (object instanceof Key) {
+            Key k = (Key) object;
+            System.out.println("The object is a key for the area : " + k.getZoneItUnlocks().getName());
+        } else if (object instanceof Letter) {
+            System.out.println("The object is a letter for the area : " + object.getZone().getName());
         }
     }
 
-        /*
-        Player player = game.getPlayer();
-
-         * for (Objet obj : player.getInventaire().getObjets()) {
-         * if (obj.getClass().getSimpleName().equalsIgnoreCase(objectName)) {
-         * System.out.println(obj.inspect(obj));
-         * return;
-         * }
-         * }
-         * 
-         * System.out.println("You don’t have that object.");
-         * }
-         * 
-         * // la je veux faire une methode pour acceder a la liste
-         * public List<Objet> getObjets() {
-         * return objets;
-         * }
-         */
-
-    }
-
+}

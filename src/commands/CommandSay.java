@@ -1,8 +1,6 @@
 package commands;
 
 import main.Game;
-import player.Player;
-import zone.Zone;
 
 public class CommandSay extends Command {
     private String response;

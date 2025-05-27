@@ -17,17 +17,16 @@ public class CommandLook extends Command {
     @Override
     public void execute(Game game, String[] args) {
 
-        if (game.getObjects().isEmpty()) {
+        if (this.zone.getObjets().isEmpty()) {
             System.out.println(zone.getDescription());
-            
-        } else {
-            System.out.println("In your game area there is "); 
 
-            for (Objet obj : game.getObjects()) {
-                if (obj.getZone().equals(this.zone)) {
-                    System.out.println("a " + obj.inspect(obj));
-                }
+        } else {
+            System.out.println("In your game area there is ");
+
+            for (Objet obj : this.zone.getObjets()) {
+                System.out.println(obj.inspect(obj));
             }
+
         }
     }
 

@@ -1,28 +1,28 @@
 package enigme;
 
-import objet.Cle;
+import objet.Key;
 import zone.Zone;
 
 public class Enigme{
 
-    private Cle cle;
+    private Key cle;
     private Zone zone;
     private String solution;
 
-    public Enigme(Zone zone, String solution, Cle cle){
+    public Enigme(Zone zone, String solution, Key cle){
         this.zone = zone;
         this.solution = solution;
         this.cle = cle;
     }
 
-    public Cle dropCle(String solution){
+    public Key dropCle(String solution){
         if (solution.equals(this.solution)) {
             return this.cle;
         }
         return null;
     }
 
-    protected Cle getCle(){
+    protected Key getCle(){
         return this.cle;
     }
 }

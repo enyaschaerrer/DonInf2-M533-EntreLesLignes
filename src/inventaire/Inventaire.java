@@ -2,16 +2,15 @@ package inventaire;
 
 import java.util.ArrayList;
 import java.util.List;
-import objet.Cle;
-import objet.Lettre;
+import objet.Key;
+import objet.Letter;
 import objet.Objet;
 
 public class Inventaire {
 
     private List<Objet> objets = new ArrayList<>();
 
-    public Inventaire(List<Objet> objets) {
-        this.objets = objets;
+    public Inventaire() {
     }
 
     public void addObjet(Objet objet) {
@@ -26,18 +25,29 @@ public class Inventaire {
 
         for (int i = 0; i < this.objets.size(); i++) {
 
-            if (objets.get(i) instanceof Cle) {
+            if (objets.get(i) instanceof Key) {
                 System.out.println("There's the key for the area " + objets.get(i).getZone());
-            } else if (objets.get(i) instanceof Lettre) {
+            } else if (objets.get(i) instanceof Letter) {
                 System.out.println("A letter for the area " + objets.get(i).getZone());
             }
         }
     }
 
-    public Cle getCle(String zone) {
+    public Objet getLastObjectByName(String name) {
+    for (int i = objets.size() - 1; i >= 0; i--) {
+        Objet o = objets.get(i);
+        if (o.getClass().getSimpleName().equalsIgnoreCase(name)) {
+            return o;
+        }
+    }
+    return null;
+}
+
+
+    public Key getCle(String zone) {
         for (Objet objet : this.objets) {
-            if (objet instanceof Cle && objet.getZone().equals(zone)) {
-                return (Cle) objet;
+            if (objet instanceof Key && objet.getZone().equals(zone)) {
+                return (Key) objet;
             }
         }
         return null;

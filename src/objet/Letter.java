@@ -3,11 +3,11 @@ package objet;
 import enigme.Enigme;
 import zone.Zone;
 
-public class Lettre extends Objet{
+public class Letter extends Objet{
 
     private Enigme enigme;
 
-    public Lettre(Enigme enigme, Zone zone) {
+    public Letter(Enigme enigme, Zone zone) {
         super(zone);
         this.enigme = enigme;
     }
@@ -15,8 +15,8 @@ public class Lettre extends Objet{
     @Override
     public String inspect(Objet objet) {
 
-        if (objet instanceof Lettre) {
-            return "The object is a letter. ";
+        if (objet instanceof Letter) {
+            return "A letter. ";
         }
         return null;
     }

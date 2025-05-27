@@ -2,11 +2,19 @@ package main;
 
 import commands.Command;
 import commands.CommandHelp;
+import commands.CommandInspect;
+import commands.CommandLook;
 import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
+import commands.CommandTake;
+import commands.CommandUse;
+import enigme.Enigme;
 import inventaire.Inventaire;
 import java.util.*;
+
+import objet.Key;
+import objet.Letter;
 import objet.Objet;
 import player.Player;
 import worldmap.WorldMap;
@@ -36,17 +44,16 @@ public class Game {
         worldMap.addZone(pond);
         worldMap.addZone(mountains);
 
-        List<Objet> objPlayer = null;
-        Inventaire inventaire = new Inventaire(objPlayer);
+        desert.addObjet(new Key(desert, forest));
+        forest.addObjet(new Key(forest, pond));
+
+        Inventaire inventaire = new Inventaire();
 
         player = new Player(inventaire);
 
         desert.unlock(); // car joueur commence là
-        player.setCurrentZone(pond); // zone 1 - CA MARCHE PAS
-        desert.unlock(); // car joueur commence là du coup la zone est débloquée pour que le joueur
-                         // puisse commencer la
-        player.setCurrentZone(desert); // zone 1 - CA MARCHE PAS
-
+        player.setCurrentZone(desert);
+        
         // ajoute les commandes
         registry = new CommandRegistry();
         CommandHelp cmdHelp = new CommandHelp(registry);
@@ -57,6 +64,18 @@ public class Game {
 
         CommandMove cmdMove = new CommandMove();
         registry.registerCommand(cmdMove);
+
+        CommandLook cmdLook = new CommandLook(this.player.getCurrentZone());
+        registry.registerCommand(cmdLook);
+
+        CommandTake cmdTake = new CommandTake();
+        registry.registerCommand(cmdTake);
+
+        CommandInspect cmdInspect = new CommandInspect();
+        registry.registerCommand(cmdInspect);
+
+        CommandUse cmdUse = new CommandUse();
+        registry.registerCommand(cmdUse);
 
     }
 

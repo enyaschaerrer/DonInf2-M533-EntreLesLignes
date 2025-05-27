@@ -10,7 +10,7 @@ public abstract class Objet {
         this.zone = zone;
     }
 
-    public abstract String inspect(Objet objet); // sous-classes obligées d'implémenter
+    public abstract String inspect(Objet objet);
 
     public Zone getZone() {
         return this.zone;
