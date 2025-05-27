@@ -7,14 +7,12 @@ import commands.CommandLook;
 import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
+import commands.CommandSee;
 import commands.CommandTake;
 import commands.CommandUse;
-import enigme.Enigme;
 import inventaire.Inventaire;
 import java.util.*;
-
 import objet.Key;
-import objet.Letter;
 import objet.Objet;
 import player.Player;
 import worldmap.WorldMap;
@@ -76,6 +74,10 @@ public class Game {
 
         CommandUse cmdUse = new CommandUse();
         registry.registerCommand(cmdUse);
+
+        CommandSee cmdSee = new CommandSee();
+        registry.registerCommand(cmdSee);
+
 
     }
 
