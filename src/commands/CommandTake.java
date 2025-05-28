@@ -13,6 +13,10 @@ public class CommandTake extends Command {
 
     @Override
     public void execute(Game game, String[] args) {
+        if (args.length == 0) {
+            System.out.println("Please specify the name of the object to take.");
+            return;
+        }
         Player player = game.getPlayer(); // récupère le joueur
         Zone currentZone = player.getCurrentZone(); // zone où il se trouve
         String objectName = args[0];

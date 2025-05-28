@@ -3,7 +3,6 @@ package inventaire;
 import java.util.ArrayList;
 import java.util.List;
 import objet.Key;
-import objet.Letter;
 import objet.Objet;
 
 public class Inventaire {
@@ -21,27 +20,21 @@ public class Inventaire {
         objets.remove(objet);
     }
 
-    public void displayInventaire() {
+    /*public void displayInventaire() {
 
         for (int i = 0; i < this.objets.size(); i++) {
 
             if (objets.get(i) instanceof Key) {
                 System.out.println("There's the key for the area " + objets.get(i).getZone());
-            } else if (objets.get(i) instanceof Letter) {
+             /*} else if (objets.get(i) instanceof Letter) {
                 System.out.println("A letter for the area " + objets.get(i).getZone());
             }
         }
-    }
+    }*/
 
-    public Objet getLastObjectByName(String name) {
-    for (int i = objets.size() - 1; i >= 0; i--) {
-        Objet o = objets.get(i);
-        if (o.getClass().getSimpleName().equalsIgnoreCase(name)) {
-            return o;
-        }
+    public List<Objet>getObjets(){
+        return objets;
     }
-    return null;
-}
 
 
     public Key getCle(String zone) {
