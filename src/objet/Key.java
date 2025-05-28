@@ -16,7 +16,6 @@ public class Key extends Objet {
         System.out.println("The zone " + zone.getName() + " is unlocked. ");
     }
 
-
     @Override
     public String inspect(Objet objet) {
 
@@ -26,8 +25,8 @@ public class Key extends Objet {
         return null;
     }
 
-    public Zone getZoneItUnlocks(){
+    public Zone getZoneItUnlocks() {
         return this.zoneItUnlocks;
     }
-       
+
 }
