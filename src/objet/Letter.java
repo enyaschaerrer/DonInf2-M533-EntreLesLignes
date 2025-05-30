@@ -3,7 +3,7 @@ package objet;
 import enigme.Enigme;
 import zone.Zone;
 
-public class Letter extends Objet{
+public class Letter extends Objet {
 
     private Enigme enigme;
 
@@ -24,4 +24,10 @@ public class Letter extends Objet{
     public void setEnigme(Enigme enigme) {
         this.enigme = enigme;
     }
+
+    // pour recuperer l'enigme
+    public Enigme getEnigme() {
+        return this.enigme;
+    }
+
 }

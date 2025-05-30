@@ -10,6 +10,7 @@ import commands.CommandRegistry;
 import commands.CommandSee;
 import commands.CommandTake;
 import commands.CommandUse;
+import enigme.Enigme;
 import inventaire.Inventaire;
 import java.util.*;
 import objet.Key;
@@ -24,6 +25,7 @@ public class Game {
     private Player player;
     private CommandRegistry registry;
     private List<Objet> allObjects = new ArrayList<>();
+    private Enigme currentEnigme;
 
     public Game() {
         System.out.println("Initializing game...");
@@ -51,7 +53,7 @@ public class Game {
 
         desert.unlock(); // car joueur commence là
         player.setCurrentZone(desert);
-        
+
         // ajoute les commandes
         registry = new CommandRegistry();
         CommandHelp cmdHelp = new CommandHelp(registry);
@@ -77,7 +79,6 @@ public class Game {
 
         CommandSee cmdSee = new CommandSee();
         registry.registerCommand(cmdSee);
-
 
     }
 
@@ -130,6 +131,14 @@ public class Game {
 
     public WorldMap getWorldMap() {
         return this.worldMap;
+    }
+
+    public void setCurrentEnigme(Enigme enigme) {
+        this.currentEnigme = enigme;
+    }
+
+    public Enigme getCurrentEnigme() {
+        return this.currentEnigme;
     }
 
 }
