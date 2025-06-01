@@ -1,8 +1,8 @@
 package commands;
 
-import enigme.Enigme;
 import main.Game;
 import objet.Key;
+import objet.Letter;
 import player.Player;
 
 public class CommandSay extends Command {
@@ -12,33 +12,33 @@ public class CommandSay extends Command {
 
     @Override
     public void execute(Game game, String[] args) {
+
+        Player player = game.getPlayer();
+        Letter l = (Letter) player.getInventaire().getLastObjectByName("letter");
+        String playerAnswer = args[0];
+
         if (args.length == 0) {
-            System.out.println("Please tipe an answer to this ridle.");
+            System.out.println("Please type an answer to this riddle.");
             return;
         }
 
-        Enigme enigme = game.getCurrentEnigme();
-
-        if (enigme == null) {
+        if (l.getEnigme() == null) {
             System.out.println("There is no riddle to answer.");
             return;
         }
 
-        // comme la reponse est dans un args [], pour pas separer la reponse mot par mot
-        // => ca va coller la reponse comme si cetait un truc ensemble
-        String playerAnswer = String.join(" ", args);
-
-        Key cle = enigme.dropCle(playerAnswer); // pour verifier la reponse du joueur
-
-        if (cle != null) {
-            // si le joeuur ecrit la bonne reponse
-            Player player = game.getPlayer();
-            player.getInventaire().addObjet(cle);
+        if (l.getEnigme().getSolution().equals(playerAnswer)) {
+            Key cleGagnee = l.getEnigme().dropCle(playerAnswer);
+            player.getInventaire().addObjet(cleGagnee);
             game.setCurrentEnigme(null); // on efface l’énigme active
-            System.out.println("Correct! You received a key for the zone: " + cle.getZoneItUnlocks().getName());
+
+            System.out.println("Correct! You received a key for the zone: " + cleGagnee.getZoneItUnlocks().getName()
+                    + ". You can now use the key and then move to this zone.");
+
         } else {
-            // au cas ou si la reponse elle est fausse
-            System.out.println(" Mrunhhhnhn wrong answer. Try again with: say <your answer>");
+            // si la réponse elle est fausse
+            System.out.println("Wrong answer. Try again with: say <your answer>");
+
         }
     }
 }

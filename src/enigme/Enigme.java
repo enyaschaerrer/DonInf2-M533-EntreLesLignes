@@ -10,9 +10,6 @@ public class Enigme {
     private String solution;
     private String question;
 
-    // je me demande juste comment ca marche pour enigme
-    // dans le sens genre c'est nous qui devons créer une engime et dire quelle est
-    // la bonne reposne et totu????
     public Enigme(String question, Zone zone, String solution, Key cle) {
         this.question = question;
         this.zone = zone;
@@ -24,6 +21,10 @@ public class Enigme {
         return this.question;
     }
 
+    public String getSolution(){
+        return this.solution;
+    }
+
     public Key dropCle(String solution) {
         if (solution.equals(this.solution)) {
             return this.cle;
@@ -31,7 +32,7 @@ public class Enigme {
         return null;
     }
 
-    protected Key getCle() {
+    public Key getCle() {
         return this.cle;
     }
 }

@@ -1,6 +1,7 @@
 package commands;
 
 import main.Game;
+import objet.Letter;
 import objet.Objet;
 import player.Player;
 import zone.Zone;
@@ -27,8 +28,16 @@ public class CommandTake extends Command {
             player.getInventaire().addObjet(object); // ajoute à l'inventaire
             currentZone.removeObjet(object); // enlève de la zone
             System.out.println("You picked up a " + objectName + " for the area : " + object.getZone().getName());
+
+            if (object instanceof Letter) {
+                Letter l = (Letter) object;
+                System.out.println(l.getEnigme().getQuestion());
+                System.out.println(new CommandSay().description);
+            }
+
         } else {
             System.out.println("There is no object here with this name.");
         }
+
     }
 }

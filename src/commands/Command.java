@@ -1,7 +1,5 @@
 package commands;
 import main.Game;
-import player.Player;
-import zone.Zone;
 
 public abstract class Command implements ICommand {
     protected String verb; // unique

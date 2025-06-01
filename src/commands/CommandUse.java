@@ -3,13 +3,12 @@ package commands;
 import main.Game;
 import objet.Objet;
 import player.Player;
-import zone.Zone;
 import objet.Key;
 
 public class CommandUse extends Command {
 
     public CommandUse() {
-        super("use", "Be able to use an object");
+        super("use", "Use an object");
     }
 
     @Override

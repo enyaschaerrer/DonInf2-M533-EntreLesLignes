@@ -1,15 +1,13 @@
 package commands;
 
 import main.Game;
-import player.Player;
-import zone.Zone;
 
 public class CommandHelp extends Command {
 
     private CommandRegistry registry;
 
     public CommandHelp(CommandRegistry registry) {
-        super("help", "Display commands");
+        super("help", "Displays all the commands available.");
         this.registry = registry;
     }
 
