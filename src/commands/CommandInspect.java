@@ -18,10 +18,17 @@ public class CommandInspect extends Command {
 
     @Override
     public void execute(Game game, String[] args) {
-        if (this.object instanceof Cle) {
-            System.out.println("The object is a key for the area : " + this.object.getZone());
-        } else if (this.object instanceof Lettre) {
-            System.out.println("The object is a letter for the area : " + this.object.getZone());
+
+        Player player = game.getPlayer(); // récupère le joueur
+        Zone currentZone = player.getCurrentZone(); // zone où il se trouve
+        String objectName = args[0];
+        Objet object = player.getCurrentZone().getObjetByName(objectName); // cherche l'objet dans l'inventaire
+
+        if (object instanceof Key) {
+            Key k = (Key) object;
+            System.out.println("The object is a key for the area : " + k.getZoneItUnlocks().getName());
+        } else if (object instanceof Letter) {
+            System.out.println("The object is a letter for the area : " + object.getZone().getName());
         }
     }
 }
