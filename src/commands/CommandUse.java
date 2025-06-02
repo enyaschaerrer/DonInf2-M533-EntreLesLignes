@@ -18,6 +18,9 @@ public class CommandUse extends Command {
 =======
     public CommandUse() {
         super("use", "Be able to use an object");
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 

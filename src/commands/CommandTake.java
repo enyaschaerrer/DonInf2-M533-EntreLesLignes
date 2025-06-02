@@ -1,8 +1,11 @@
 package commands;
 import main.Game;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import objet.Cle;
 =======
+=======
+>>>>>>> Stashed changes
 import objet.Objet;
 >>>>>>> Stashed changes
 import player.Player;
@@ -49,6 +52,9 @@ public class CommandTake extends Command {
         } else {
             System.out.println("There is no object here with this name.");
         }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

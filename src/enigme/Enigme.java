@@ -10,7 +10,11 @@ public class Enigme{
     private String solution;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public Enigme(Zone zone, String solution, Cle cle){
+=======
+    public Enigme(Zone zone, String solution, Key cle){
+>>>>>>> Stashed changes
 =======
     public Enigme(Zone zone, String solution, Key cle){
 >>>>>>> Stashed changes
@@ -20,7 +24,11 @@ public class Enigme{
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public Cle dropCle(String solution){
+=======
+    public Key dropCle(String solution){
+>>>>>>> Stashed changes
 =======
     public Key dropCle(String solution){
 >>>>>>> Stashed changes
@@ -31,7 +39,11 @@ public class Enigme{
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     protected Cle getCle(){
+=======
+    protected Key getCle(){
+>>>>>>> Stashed changes
 =======
     protected Key getCle(){
 >>>>>>> Stashed changes

@@ -18,8 +18,11 @@ public class CommandLook extends Command {
     public void execute(Game game, String[] args) {
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         if (game.getObjects().isEmpty()) {
 =======
+=======
+>>>>>>> Stashed changes
         if (this.zone.getObjets().isEmpty()) {
 >>>>>>> Stashed changes
             System.out.println(zone.getDescription());

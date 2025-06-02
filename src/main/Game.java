@@ -6,15 +6,21 @@ import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import inventaire.Inventaire;
 import java.util.*;
 =======
+=======
+>>>>>>> Stashed changes
 import commands.CommandSee;
 import commands.CommandTake;
 import commands.CommandUse;
 import inventaire.Inventaire;
 import java.util.*;
 import objet.Key;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 import objet.Objet;
 import player.Player;
@@ -45,7 +51,13 @@ public class Game {
         worldMap.addZone(pond);
         worldMap.addZone(mountains);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+
+        desert.addObjet(new Key(desert, forest));
+        forest.addObjet(new Key(forest, pond));
+>>>>>>> Stashed changes
 
         desert.addObjet(new Key(desert, forest));
         forest.addObjet(new Key(forest, pond));
@@ -60,8 +72,14 @@ public class Game {
         desert.unlock(); // car joueur commence là
         player.setCurrentZone(pond); // zone 1 - CA MARCHE PAS
 
+<<<<<<< Updated upstream
 =======
 
+        desert.unlock(); // car joueur commence là
+        player.setCurrentZone(desert);
+        
+>>>>>>> Stashed changes
+=======
         desert.unlock(); // car joueur commence là
         player.setCurrentZone(desert);
         
@@ -78,7 +96,10 @@ public class Game {
         registry.registerCommand(cmdMove);
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         CommandLook cmdLook = new CommandLook(this.player.getCurrentZone());
         registry.registerCommand(cmdLook);
 
@@ -149,8 +170,11 @@ public class Game {
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
    
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 }

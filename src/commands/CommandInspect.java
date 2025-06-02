@@ -20,6 +20,9 @@ public class CommandInspect extends Command {
 =======
     public CommandInspect() {
         super("inspect", "Command to inspect an object.");
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 

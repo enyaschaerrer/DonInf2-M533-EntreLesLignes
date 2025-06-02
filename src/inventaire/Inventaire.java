@@ -3,8 +3,12 @@ package inventaire;
 import java.util.ArrayList;
 import java.util.List;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import objet.Cle;
 import objet.Lettre;
+=======
+import objet.Key;
+>>>>>>> Stashed changes
 =======
 import objet.Key;
 >>>>>>> Stashed changes
@@ -27,6 +31,7 @@ public class Inventaire {
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public void displayInventaire(){
         
         for (int i = 0; i < this.objets.size(); i++) {
@@ -46,6 +51,10 @@ public class Inventaire {
 =======
     /*public void displayInventaire() {
 
+=======
+    /*public void displayInventaire() {
+
+>>>>>>> Stashed changes
         for (int i = 0; i < this.objets.size(); i++) {
 
             if (objets.get(i) instanceof Key) {
@@ -65,6 +74,9 @@ public class Inventaire {
         for (Objet objet : this.objets) {
             if (objet instanceof Key && objet.getZone().equals(zone)) {
                 return (Key) objet;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             }
         }
