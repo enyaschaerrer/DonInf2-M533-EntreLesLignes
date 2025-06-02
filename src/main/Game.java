@@ -133,12 +133,37 @@ public class Game {
     public void run() {
         System.out.println("Running game...");
 
+        // private SaveManager saveManager = new SaveManager();
+
         System.out.println(
                 "Welcome to the Game of Tudum Tudum. You shall inspect the areas and resolve riddles to unlock other areas and move. A surprise is waiting for you at the arrival.");
         System.out.println(
                 "At any time, feel free to type > help to see all the commands available. ");
 
         Scanner scanner = new Scanner(System.in);
+
+        /*
+         * Scanner scanner = new Scanner(System.in);
+         * System.out.println("Welcome to the game!");
+         * System.out.println("1 - New game");
+         * System.out.println("2 - Load last save");
+         * 
+         * String choice = scanner.nextLine();
+         * 
+         * if (choice.equals("2")) {
+         * List<String> previousCommands = saveManager.loadFromFile();
+         * for (String commandLine : previousCommands) {
+         * String[] parts = commandLine.split("\\s+");
+         * String commandName = parts[0].toLowerCase();
+         * String[] args = Arrays.copyOfRange(parts, 1, parts.length);
+         * Command command = registry.getCommand(commandName);
+         * if (command != null) {
+         * command.execute(this, args);
+         * }
+         * }
+         * }
+         * 
+         */
 
         while (true) {
             System.out.print("> ");
