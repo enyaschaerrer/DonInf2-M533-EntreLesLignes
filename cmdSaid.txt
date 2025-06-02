@@ -1,2 +1,11 @@
 map
+help
+see
 look
+take letter
+say 3
+see
+use key
+map
+move south
+map
