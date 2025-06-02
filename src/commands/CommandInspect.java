@@ -16,17 +16,26 @@ public class CommandInspect extends Command {
     public void execute(Game game, String[] args) {
 
         Player player = game.getPlayer(); // récupère le joueur
-        String objectName = args[0];
-        Objet object = player.getCurrentZone().getObjetByName(objectName); // cherche l'objet dans l'inventaire
 
-        if (object instanceof Key) {
-            Key k = (Key) object;
-            System.out.println("The object is a key for the area : " + k.getZoneItUnlocks().getName());
-        } else if (object instanceof Letter) {
-            Letter l = (Letter) object;
-            System.out.println(
-                    "The object is a letter with inside a riddle, which if solved correctly, will drop a key unlocking the "
-                            + l.getEnigme().getCle().getZoneItUnlocks().getName());
+        if (args.length == 0) {
+
+            System.out.println("Usage: inspect <letter|key>");
+            return;
+
+        } else {
+
+            String objectName = args[0];
+            Objet object = player.getCurrentZone().getObjetByName(objectName); // cherche l'objet dans l'inventaire
+
+            if (object instanceof Key) {
+                Key k = (Key) object;
+                System.out.println("The object is a key for the area : " + k.getZoneItUnlocks().getName());
+            } else if (object instanceof Letter) {
+                Letter l = (Letter) object;
+                System.out.println(
+                        "The object is a letter with inside a riddle, which if solved correctly, will drop a key unlocking the "
+                                + l.getEnigme().getCle().getZoneItUnlocks().getName());
+            }
         }
     }
 
