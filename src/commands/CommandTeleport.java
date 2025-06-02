@@ -8,7 +8,7 @@ public class CommandTeleport extends Command {
     public CommandTeleport(String verb, String description) {
         super(verb, description);
         
-    }
+        }
 
       @Override
     public void execute(Game game, String[] args) {
@@ -21,18 +21,18 @@ public class CommandTeleport extends Command {
             System.out.println("Utilisation : teleport nom-du-lieu");
             return;
         }
+        /*
+        String destination = allZones.get(getName);
 
-        String destination = args[1];
-
-       /* if (!Player.hasVisited(destination)) {
+        if (!Player.hasVisited(destination.getName())) {
             System.out.println("Vous ne pouvez vous téléporter qu'à des endroits déjà visités.");
             return;
         }
 
         // Logique de téléportation :
-        Player.setCurrentZone(zone Zone){
+        Player.setCurrentZone(destination){
         System.out.println("Téléportation vers " + currentZone + " effectuée !");
-    }
-*/
+    
+        }*/
     }
 }

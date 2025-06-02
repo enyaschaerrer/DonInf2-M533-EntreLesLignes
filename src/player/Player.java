@@ -28,10 +28,11 @@ public class Player {
         return currentZone;
     }
 
+    // pouvoir ajouter la zone actuel dans laquelle le joueur est
     public void setCurrentZone(Zone zone) {
         this.currentZone = zone;
         if (zone != null) {
-           //visitedZones.add(zone.getObjetByName(Name));
+           //visitedZones.add(zone); 
         }
 
     }

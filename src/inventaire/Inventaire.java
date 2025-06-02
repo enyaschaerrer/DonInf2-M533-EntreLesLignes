@@ -35,4 +35,14 @@ public class Inventaire {
         return null;
     }
 
+    // savoir si un objet a ce nom dans la liste pour teleport 
+     public boolean contains(String nomItem) {
+        for (Objet obj : objets) {
+            //if (Zone.getName().equalsIgnoreCase(nomItem)) {
+               // return true;
+            //}
+        }
+        return false;
+    }
+
 }
