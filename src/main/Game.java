@@ -23,7 +23,7 @@ import zone.Zone;
 
 public class Game {
 
-    private WorldMap worldMap = new WorldMap(2, 4);
+    private WorldMap worldMap = new WorldMap(2, 6);
     private Player player;
     private CommandRegistry registry;
     private List<Objet> allObjects = new ArrayList<>();
@@ -33,21 +33,31 @@ public class Game {
         System.out.println("Initializing game...");
 
         // création de zones
-        Zone desert = new Zone("desert", "expanse of sand", true, 0, 0);
-        Zone forest = new Zone("forest", "expanse of fir trees", true, 0, 1);
-        Zone lake = new Zone("lake", "deep water body", true, 0, 2);
-        Zone pond = new Zone("pond", "body of stagnant water", true, 0, 3);
-        Zone mountains = new Zone("mountains", "rocky peaks", true, 1, 0);
-        Zone startZone = new Zone("startZone", "starting zone", false, 1, 1);
-        Zone arrival = new Zone("arrival", "success", true, 1, 3);
+        Zone startZone = new Zone("startZone", "starting zone", false, 0, 0);
+        Zone desert = new Zone("desert", "expanse of sand", true, 1, 0);
+        Zone forest = new Zone("forest", "expanse of fir trees", true, 1, 1);
+        Zone lake = new Zone("lake", "deep water body", true, 0, 1);
+        Zone pond = new Zone("pond", "body of stagnant water", true, 0, 2);
+        Zone mountains = new Zone("mountains", "rocky peaks", true, 1, 2);
+        Zone river = new Zone("river", "quiet flow of water", true, 0, 3);
+        Zone castle = new Zone("castle", "beautiful old building", true, 1, 3);
+        Zone sea = new Zone("sea", "expanse of salt water", true, 0, 4);
+        Zone city = new Zone("city", "large town", true, 1, 4);
+        Zone jungle = new Zone("jungle", "dense, tropical forest", true, 1, 5);
+        Zone arrival = new Zone("arrival", "success", true, 0, 5);
 
         // ajout des zones a la map
+        worldMap.addZone(startZone);
         worldMap.addZone(desert);
         worldMap.addZone(forest);
         worldMap.addZone(lake);
         worldMap.addZone(pond);
         worldMap.addZone(mountains);
-        worldMap.addZone(startZone);
+        worldMap.addZone(river);
+        worldMap.addZone(castle);
+        worldMap.addZone(sea);
+        worldMap.addZone(city);
+        worldMap.addZone(jungle);
         worldMap.addZone(arrival);
 
         Inventaire inventaire = new Inventaire();
@@ -57,12 +67,11 @@ public class Game {
         startZone.unlock(); // car joueur commence là
         player.setCurrentZone(startZone);
 
-
         // les objets
 
         startZone.addObjet(
-                new Letter(new Enigme("What's the altitude of the Mount Everest? 1. 8001m 2. 8849m 3. 9023m",
-                        startZone, "2", new Key(startZone, mountains)), startZone));
+                new Letter(new Enigme("What is the biggest desert in the world? 1. Sahara 2. Kalahari 3. Antartica",
+                        startZone, "3", new Key(startZone, desert)), startZone));
 
         mountains.addObjet(
                 new Letter(new Enigme("What is the biggest desert in the world? 1. Sahara 2. Kalahari 3. Antartica",
@@ -83,9 +92,12 @@ public class Game {
                         lake, "2", new Key(lake, pond)), lake));
 
         pond.addObjet(
-                new Letter(new Enigme("Final question: did you like this game? ;-) 1. loved it 2. nope",
-                        pond, "1", new Key(pond, arrival)), lake));
+                new Letter(new Enigme("What's the altitude of the Mount Everest? 1. 8001m 2. 8849m 3. 9023m",
+                        pond, "2", new Key(pond, mountains)), pond));
 
+        jungle.addObjet(
+                new Letter(new Enigme("Final question: did you like this game? ;-) 1. loved it 2. nope",
+                        jungle, "1", new Key(jungle, arrival)), jungle));
 
         // ajoute les commandes
         registry = new CommandRegistry();
@@ -116,11 +128,15 @@ public class Game {
 
         CommandSay cmdSay = new CommandSay();
         registry.registerCommand(cmdSay);
-
     }
 
     public void run() {
         System.out.println("Running game...");
+
+        System.out.println(
+                "Welcome to the Game of Tudum Tudum. You shall inspect the areas and resolve riddles to unlock other areas and move. A surprise is waiting for you at the arrival.");
+        System.out.println(
+                "At any time, feel free to type > help to see all the commands available. ");
 
         Scanner scanner = new Scanner(System.in);
 
