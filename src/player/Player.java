@@ -7,7 +7,7 @@ import zone.Zone;
 
 public class Player {
 
-    private static Inventaire inventaire;
+    private Inventaire inventaire;
     private Zone currentZone;
     private Set<String> visitedZones;
     
