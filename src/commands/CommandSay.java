@@ -7,7 +7,7 @@ import player.Player;
 
 public class CommandSay extends Command {
     public CommandSay() {
-        super("say", "say <answer>: Answer the current riddle.");
+        super("say", "say <answer>: Answer the current riddle. The answer is the number (1, 2 or 3) of the option.");
     }
 
     @Override

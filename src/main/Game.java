@@ -28,6 +28,7 @@ public class Game {
     private CommandRegistry registry;
     private List<Objet> allObjects = new ArrayList<>();
     private Enigme currentEnigme;
+    private Zone arrivalZone;
 
     public Game() {
         System.out.println("Initializing game...");
@@ -39,12 +40,14 @@ public class Game {
         Zone lake = new Zone("lake", "deep water body", true, 0, 1);
         Zone pond = new Zone("pond", "body of stagnant water", true, 0, 2);
         Zone mountains = new Zone("mountains", "rocky peaks", true, 1, 2);
-        Zone river = new Zone("river", "quiet flow of water", true, 0, 3);
-        Zone castle = new Zone("castle", "beautiful old building", true, 1, 3);
-        Zone sea = new Zone("sea", "expanse of salt water", true, 0, 4);
-        Zone city = new Zone("city", "large town", true, 1, 4);
-        Zone jungle = new Zone("jungle", "dense, tropical forest", true, 1, 5);
+        Zone river = new Zone("river", "quiet flow of water", false, 0, 3);
+        Zone castle = new Zone("castle", "beautiful old building", false, 1, 3);
+        Zone sea = new Zone("sea", "expanse of salt water", false, 0, 4);
+        Zone city = new Zone("city", "large town", false, 1, 4);
+        Zone jungle = new Zone("jungle", "dense, tropical forest", false, 1, 5);
         Zone arrival = new Zone("arrival", "success", true, 0, 5);
+
+        this.arrivalZone = arrival;
 
         // ajout des zones a la map
         worldMap.addZone(startZone);
@@ -138,7 +141,7 @@ public class Game {
         System.out.println(
                 "Welcome to the Game of Tudum Tudum. You shall inspect the areas and resolve riddles to unlock other areas and move. A surprise is waiting for you at the arrival.");
         System.out.println(
-                "At any time, feel free to type > help to see all the commands available. ");
+                "At any time, feel free to type 'help' to see all the commands available. ");
 
         Scanner scanner = new Scanner(System.in);
 
@@ -190,10 +193,13 @@ public class Game {
             } else {
                 System.out.println("Command unknown. Say 'help' to get the list of all the commands available.");
             }
+
+            if (this.getPlayer().getCurrentZone().equals(arrivalZone)) {
+                System.out.println(
+                        "You won !!!!!!! The surprise is : you have to tell somebody close to you that you love them. SPREAD LOVE YOUHOU");
+            }
         }
     }
-
-    // méthode afficher carte ?
 
     public Player getPlayer() {
         return this.player;
