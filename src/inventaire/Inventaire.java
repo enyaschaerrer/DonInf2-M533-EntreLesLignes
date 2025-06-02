@@ -2,8 +2,12 @@ package inventaire;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< Updated upstream
 import objet.Cle;
 import objet.Lettre;
+=======
+import objet.Key;
+>>>>>>> Stashed changes
 import objet.Objet;
 
 public class Inventaire {
@@ -22,6 +26,7 @@ public class Inventaire {
         objets.remove(objet);
     }
 
+<<<<<<< Updated upstream
     public void displayInventaire(){
         
         for (int i = 0; i < this.objets.size(); i++) {
@@ -38,6 +43,29 @@ public class Inventaire {
         for (Objet objet : this.objets) {
             if (objet instanceof Cle && objet.getZone().equals(zone)) {
                 return (Cle) objet;
+=======
+    /*public void displayInventaire() {
+
+        for (int i = 0; i < this.objets.size(); i++) {
+
+            if (objets.get(i) instanceof Key) {
+                System.out.println("There's the key for the area " + objets.get(i).getZone());
+             /*} else if (objets.get(i) instanceof Letter) {
+                System.out.println("A letter for the area " + objets.get(i).getZone());
+            }
+        }
+    }*/
+
+    public List<Objet>getObjets(){
+        return objets;
+    }
+
+
+    public Key getCle(String zone) {
+        for (Objet objet : this.objets) {
+            if (objet instanceof Key && objet.getZone().equals(zone)) {
+                return (Key) objet;
+>>>>>>> Stashed changes
             }
         }
         return null;

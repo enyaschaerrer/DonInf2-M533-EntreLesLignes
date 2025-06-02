@@ -1,5 +1,7 @@
 package commands;
 
+import java.util.List;
+
 import main.Game;
 import objet.Cle;
 import objet.Lettre;
@@ -9,11 +11,16 @@ import zone.Zone;
 
 public class CommandInspect extends Command {
 
+<<<<<<< Updated upstream
     private Objet object;
 
     public CommandInspect(Objet object) {
         super("inspect", "Command to inspect an object.");
         this.object = object;
+=======
+    public CommandInspect() {
+        super("inspect", "Command to inspect an object.");
+>>>>>>> Stashed changes
     }
 
     @Override

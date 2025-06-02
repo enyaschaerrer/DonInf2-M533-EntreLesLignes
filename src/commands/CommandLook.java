@@ -17,7 +17,11 @@ public class CommandLook extends Command {
     @Override
     public void execute(Game game, String[] args) {
 
+<<<<<<< Updated upstream
         if (game.getObjects().isEmpty()) {
+=======
+        if (this.zone.getObjets().isEmpty()) {
+>>>>>>> Stashed changes
             System.out.println(zone.getDescription());
             
         } else {

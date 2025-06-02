@@ -1,6 +1,10 @@
 package commands;
 import main.Game;
+<<<<<<< Updated upstream
 import objet.Cle;
+=======
+import objet.Objet;
+>>>>>>> Stashed changes
 import player.Player;
 import zone.Zone;
 import.inventaire.Inventaire;
@@ -30,5 +34,21 @@ public class CommandTake extends Command {
         } catch (Exception e) {
             System.out.println("Erreur lors de l'ajout de la clé: " + e.getMessage());
         }
+<<<<<<< Updated upstream
+=======
+        Player player = game.getPlayer(); // récupère le joueur
+        Zone currentZone = player.getCurrentZone(); // zone où il se trouve
+        String objectName = args[0];
+
+        Objet object = currentZone.getObjetByName(objectName); // cherche l'objet dans la zone
+
+        if (object != null) {
+            player.getInventaire().addObjet(object); // ajoute à l'inventaire
+            currentZone.removeObjet(object); // enlève de la zone
+            System.out.println("You picked up a " + objectName + " for the area : " + object.getZone().getName());
+        } else {
+            System.out.println("There is no object here with this name.");
+        }
+>>>>>>> Stashed changes
     }
 }

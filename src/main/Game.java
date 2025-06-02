@@ -5,8 +5,17 @@ import commands.CommandHelp;
 import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
+<<<<<<< Updated upstream
 import inventaire.Inventaire;
 import java.util.*;
+=======
+import commands.CommandSee;
+import commands.CommandTake;
+import commands.CommandUse;
+import inventaire.Inventaire;
+import java.util.*;
+import objet.Key;
+>>>>>>> Stashed changes
 import objet.Objet;
 import player.Player;
 import worldmap.WorldMap;
@@ -35,15 +44,28 @@ public class Game {
         worldMap.addZone(lake);
         worldMap.addZone(pond);
         worldMap.addZone(mountains);
+<<<<<<< Updated upstream
+=======
+
+        desert.addObjet(new Key(desert, forest));
+        forest.addObjet(new Key(forest, pond));
+>>>>>>> Stashed changes
 
         List<Objet> objPlayer = null;
         Inventaire inventaire = new Inventaire(objPlayer);
 
         player = new Player(inventaire);
+<<<<<<< Updated upstream
         
         desert.unlock(); // car joueur commence là
         player.setCurrentZone(pond); // zone 1 - CA MARCHE PAS
 
+=======
+
+        desert.unlock(); // car joueur commence là
+        player.setCurrentZone(desert);
+        
+>>>>>>> Stashed changes
         // ajoute les commandes
         registry = new CommandRegistry();
         CommandHelp cmdHelp = new CommandHelp(registry);
@@ -55,6 +77,25 @@ public class Game {
         CommandMove cmdMove = new CommandMove();
         registry.registerCommand(cmdMove);
 
+<<<<<<< Updated upstream
+=======
+        CommandLook cmdLook = new CommandLook(this.player.getCurrentZone());
+        registry.registerCommand(cmdLook);
+
+        CommandTake cmdTake = new CommandTake();
+        registry.registerCommand(cmdTake);
+
+        CommandInspect cmdInspect = new CommandInspect();
+        registry.registerCommand(cmdInspect);
+
+        CommandUse cmdUse = new CommandUse();
+        registry.registerCommand(cmdUse);
+
+        CommandSee cmdSee = new CommandSee();
+        registry.registerCommand(cmdSee);
+
+
+>>>>>>> Stashed changes
     }
 
     public void run() {
@@ -107,6 +148,9 @@ public class Game {
         return this.worldMap;
     }
 
+<<<<<<< Updated upstream
    
 
+=======
+>>>>>>> Stashed changes
 }
