@@ -27,7 +27,7 @@ public class CommandTake extends Command {
         if (object != null) {
             player.getInventaire().addObjet(object); // ajoute à l'inventaire
             currentZone.removeObjet(object); // enlève de la zone
-            System.out.println("You picked up a " + objectName + " for the area : " + object.getZone().getName());
+            System.out.println("You picked up a " + objectName + " in the area : " + object.getZone().getName());
 
             if (object instanceof Letter) {
                 Letter l = (Letter) object;
