@@ -139,6 +139,7 @@ public class Game {
                 "Welcome to the Game of Tudum Tudum. You shall inspect the areas and resolve riddles to unlock other areas and move. A surprise is waiting for you at the arrival.");
         System.out.println(
                 "At any time, feel free to type 'help' to see all the commands available. ");
+                System.out.println("The game is designed to move like a snake: down right up right...");
 
         System.out.println("Type 1 to start a new game or 2 to load the last save.");
 
