@@ -8,14 +8,21 @@ import player.Player;
 
 public class CommandInspect extends Command {
 
+
+    private Objet object;
+
+
     public CommandInspect() {
-        super("inspect", "Inspect an object.");
+        super("inspect", "Command to inspect an object.");
     }
+
+
 
     @Override
     public void execute(Game game, String[] args) {
 
         Player player = game.getPlayer(); // récupère le joueur
+
         String objectName = args[0];
         Objet object = player.getCurrentZone().getObjetByName(objectName); // cherche l'objet dans l'inventaire
 
@@ -27,6 +34,7 @@ public class CommandInspect extends Command {
             System.out.println(
                     "The object is a letter with inside a riddle, which if solved correctly, will drop a key unlocking the "
                             + l.getEnigme().getCle().getZoneItUnlocks().getName());
+
         }
     }
 
