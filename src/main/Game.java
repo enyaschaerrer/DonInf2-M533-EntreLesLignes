@@ -11,6 +11,7 @@ import commands.CommandSay;
 import commands.CommandSee;
 import commands.CommandTake;
 import commands.CommandUse;
+import commands.CommandSave;
 import enigme.Enigme;
 import inventaire.Inventaire;
 import java.util.*;
@@ -25,14 +26,38 @@ public class Game {
 
     private WorldMap worldMap = new WorldMap(2, 6);
     private Player player;
-    private CommandRegistry registry;
+    private CommandRegistry registry = new CommandRegistry();
     private List<Objet> allObjects = new ArrayList<>();
     private Enigme currentEnigme;
     private Zone arrivalZone;
 
+    // pour stocker les cmd dites
+    private List<String> cmdSaid = new ArrayList<>();
+
     public Game() {
         System.out.println("Initializing game...");
 
+        initCommands();
+        initZonesObjects();
+
+    }
+
+    private void initCommands() {
+        CommandHelp cmdHelp = new CommandHelp(registry);
+        registry.registerCommand(cmdHelp);
+
+        registry.registerCommand(new CommandMap());
+        registry.registerCommand(new CommandMove());
+        registry.registerCommand(new CommandLook(this));
+        registry.registerCommand(new CommandTake());
+        registry.registerCommand(new CommandInspect());
+        registry.registerCommand(new CommandUse());
+        registry.registerCommand(new CommandSee());
+        registry.registerCommand(new CommandSay());
+        registry.registerCommand(new CommandSave());
+    }
+
+    private void initZonesObjects() {
         // création de zones
         Zone startZone = new Zone("startZone", "starting zone", false, 0, 0);
         Zone desert = new Zone("desert", "expanse of sand", true, 1, 0);
@@ -102,71 +127,26 @@ public class Game {
                 new Letter(new Enigme("Final question: did you like this game? ;-) 1. loved it 2. nope",
                         jungle, "1", new Key(jungle, arrival)), jungle));
 
-        // ajoute les commandes
-        registry = new CommandRegistry();
-
-        CommandHelp cmdHelp = new CommandHelp(registry);
-        registry.registerCommand(cmdHelp);
-
-        CommandMap cmdMap = new CommandMap();
-        registry.registerCommand(cmdMap);
-
-        CommandMove cmdMove = new CommandMove();
-        registry.registerCommand(cmdMove);
-
-        CommandLook cmdLook = new CommandLook(this);
-        registry.registerCommand(cmdLook);
-
-        CommandTake cmdTake = new CommandTake();
-        registry.registerCommand(cmdTake);
-
-        CommandInspect cmdInspect = new CommandInspect();
-        registry.registerCommand(cmdInspect);
-
-        CommandUse cmdUse = new CommandUse();
-        registry.registerCommand(cmdUse);
-
-        CommandSee cmdSee = new CommandSee();
-        registry.registerCommand(cmdSee);
-
-        CommandSay cmdSay = new CommandSay();
-        registry.registerCommand(cmdSay);
     }
 
     public void run() {
-        System.out.println("Running game...");
 
-        // private SaveManager saveManager = new SaveManager();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Running game...");
 
         System.out.println(
                 "Welcome to the Game of Tudum Tudum. You shall inspect the areas and resolve riddles to unlock other areas and move. A surprise is waiting for you at the arrival.");
         System.out.println(
                 "At any time, feel free to type 'help' to see all the commands available. ");
 
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Type 1 to start a new game or 2 to load the last save.");
 
-        /*
-         * Scanner scanner = new Scanner(System.in);
-         * System.out.println("Welcome to the game!");
-         * System.out.println("1 - New game");
-         * System.out.println("2 - Load last save");
-         * 
-         * String choice = scanner.nextLine();
-         * 
-         * if (choice.equals("2")) {
-         * List<String> previousCommands = saveManager.loadFromFile();
-         * for (String commandLine : previousCommands) {
-         * String[] parts = commandLine.split("\\s+");
-         * String commandName = parts[0].toLowerCase();
-         * String[] args = Arrays.copyOfRange(parts, 1, parts.length);
-         * Command command = registry.getCommand(commandName);
-         * if (command != null) {
-         * command.execute(this, args);
-         * }
-         * }
-         * }
-         * 
-         */
+        String choice = scanner.nextLine();
+
+        if (choice.equals("2")) {
+            this.getCmdSave().readPastCmd(this);
+        }
 
         while (true) {
             System.out.print("> ");
@@ -185,10 +165,13 @@ public class Game {
 
             Command command = registry.getCommand(commandName);
 
-            // a revoir
+            // si commande ok
             if (command != null) {
 
                 command.execute(this, args);
+
+                // ajouter a listes cmd tapées
+                cmdSaid.add(input);
 
             } else {
                 System.out.println("Command unknown. Say 'help' to get the list of all the commands available.");
@@ -199,6 +182,12 @@ public class Game {
                         "You won !!!!!!! The surprise is : you have to tell somebody close to you that you love them. SPREAD LOVE YOUHOU");
             }
         }
+    }
+
+    // save
+
+    public List<String> getCommandHistory() {
+        return this.cmdSaid;
     }
 
     public Player getPlayer() {
@@ -223,6 +212,14 @@ public class Game {
 
     public Enigme getCurrentEnigme() {
         return this.currentEnigme;
+    }
+
+    public CommandSave getCmdSave() {
+        return (CommandSave) this.registry.getCommand("save");
+    }
+
+    public CommandRegistry getRegistry() {
+        return this.registry;
     }
 
 }
