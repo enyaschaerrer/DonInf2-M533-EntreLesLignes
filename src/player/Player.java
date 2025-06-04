@@ -32,13 +32,17 @@ public class Player {
     public void setCurrentZone(Zone zone) {
         this.currentZone = zone;
         if (zone != null) {
-           //visitedZones.add(zone); 
+           visitedZones.add(zone.getName()); 
         }
 
     }
 
-    public static String getItems(String itemName) {
-        return itemName;
+    public boolean hasVisitedZone(String zoneName) {
+        return visitedZones.contains(zoneName);
+    }
+
+    public Set<String> getVisitedZones() {
+        return visitedZones;
     }
 
 

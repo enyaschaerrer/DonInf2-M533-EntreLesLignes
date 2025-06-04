@@ -182,4 +182,9 @@ public class Game {
         return this.currentEnigme;
     }
 
+    public Zone getZoneByName(String zoneName) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getZoneByName'");
+    }
+
 }
