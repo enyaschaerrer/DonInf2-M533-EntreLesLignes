@@ -10,6 +10,7 @@ import commands.CommandRegistry;
 import commands.CommandSay;
 import commands.CommandSee;
 import commands.CommandTake;
+import commands.CommandTeleport;
 import commands.CommandUse;
 import enigme.Enigme;
 import inventaire.Inventaire;
@@ -116,6 +117,9 @@ public class Game {
 
         CommandSay cmdSay = new CommandSay();
         registry.registerCommand(cmdSay);
+
+        CommandTeleport cmdTeleport = new CommandTeleport();
+        registry.registerCommand(cmdTeleport);
 
     }
 

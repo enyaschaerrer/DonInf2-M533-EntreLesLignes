@@ -5,8 +5,8 @@ import main.Game;
 
 public class CommandTeleport extends Command {
 
-    public CommandTeleport(String verb, String description) {
-        super(verb, description);
+    public CommandTeleport() {
+        super("teleport", "Teleport to a new zone ?");
         
         }
 
