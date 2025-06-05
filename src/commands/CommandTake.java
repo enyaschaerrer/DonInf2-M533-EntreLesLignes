@@ -1,6 +1,7 @@
 package commands;
 
 import main.Game;
+import objet.Crystal;
 import objet.Letter;
 import objet.Objet;
 import player.Player;
@@ -33,6 +34,10 @@ public class CommandTake extends Command {
                 Letter l = (Letter) object;
                 System.out.println(l.getEnigme().getQuestion());
                 System.out.println(new CommandSay().description);
+                
+            } else if (object instanceof Crystal) {
+                CommandTeleport cmdTeleport = new CommandTeleport();
+                game.getRegistry().registerCommand(cmdTeleport);
             }
 
         } else {

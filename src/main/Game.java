@@ -16,6 +16,8 @@ import commands.CommandUse;
 import enigme.Enigme;
 import inventaire.Inventaire;
 import java.util.*;
+
+import objet.Crystal;
 import objet.Key;
 import objet.Letter;
 import objet.Objet;
@@ -102,10 +104,6 @@ public class Game {
                 new Letter(new Enigme("What is the biggest desert in the world? 1. Sahara 2. Kalahari 3. Antartica",
                         startZone, "3", new Key(startZone, desert)), startZone));
 
-        mountains.addObjet(
-                new Letter(new Enigme("What is the biggest desert in the world? 1. Sahara 2. Kalahari 3. Antartica",
-                        mountains, "3", new Key(mountains, desert)), mountains));
-
         desert.addObjet(
                 new Letter(new Enigme(
                         "Which layer of the forest gets the most sunlight? 1. canopy 2. understory 3. forest floor?",
@@ -128,8 +126,7 @@ public class Game {
                 new Letter(new Enigme("Final question: did you like this game? ;-) 1. loved it 2. nope",
                         jungle, "1", new Key(jungle, arrival)), jungle));
 
-        CommandTeleport cmdTeleport = new CommandTeleport();
-        registry.registerCommand(cmdTeleport);
+        desert.addObjet(new Crystal(desert));
 
     }
 
@@ -141,16 +138,17 @@ public class Game {
 
         System.out.println(
                 "Welcome to the Game of Tudum Tudum. You shall inspect the areas and resolve riddles to unlock other areas and move. A surprise is waiting for you at the arrival.");
+        System.out.println("Hidden in the map is a special object: a crystal. If found, it gives you a superpower.");
         System.out.println(
                 "At any time, feel free to type 'help' to see all the commands available. ");
-                System.out.println("The game is designed to move like a snake: down right up right...");
+        System.out.println("The game is designed to move like a snake: down right up right...");
 
         System.out.println("Type 1 to start a new game or 2 to load the last save.");
 
         String choice = scanner.nextLine();
 
         if (choice.equals("2")) {
-            //this.getCmdSave().readPastCmd(this);
+            // this.getCmdSave().readPastCmd(this);
         }
 
         while (true) {
@@ -219,19 +217,21 @@ public class Game {
         return this.currentEnigme;
     }
 
-
     public Zone getZoneByName(String name) {
-    Zone[][] zones = worldMap.getZones(); 
+        Zone[][] zones = WorldMap.getZones();
 
-    for (int i = 0; i < zones.length; i++) {
-        for (int j = 0; j < zones[i].length; j++) {
-            if (zones[i][j].getName().equals(name)) {
-                return zones[i][j]; // Manquait le point-virgule
+        for (int i = 0; i < zones.length; i++) {
+            for (int j = 0; j < zones[i].length; j++) {
+                if (zones[i][j].getName().equalsIgnoreCase(name)) {
+                    return zones[i][j];
+                }
             }
         }
+        return null;
     }
-    return null;
-}
 
+    public CommandRegistry getRegistry() {
+        return this.registry;
+    }
 
 }

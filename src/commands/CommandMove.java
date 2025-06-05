@@ -35,6 +35,7 @@ public class CommandMove extends Command {
 
             } else {
                 player.setCurrentZone(targetZone); // met à jour la position du joueur
+                player.addVisitedZone(targetZone);
                 System.out.println("You moved to: " + targetZone.getName());
                 System.out.println(targetZone.getDescription());
             }
