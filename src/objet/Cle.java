@@ -4,7 +4,7 @@ import zone.Zone;
 
 public class Cle extends Objet {
 
-    public Cle(String zone) {
+    public Cle(Zone zone) {
         super(zone);
     }
 
