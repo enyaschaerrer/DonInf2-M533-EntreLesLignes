@@ -7,11 +7,12 @@ import commands.CommandLook;
 import commands.CommandMap;
 import commands.CommandMove;
 import commands.CommandRegistry;
+import commands.CommandSave;
 import commands.CommandSay;
 import commands.CommandSee;
 import commands.CommandTake;
+import commands.CommandTeleport;
 import commands.CommandUse;
-import commands.CommandSave;
 import enigme.Enigme;
 import inventaire.Inventaire;
 import java.util.*;
@@ -127,6 +128,9 @@ public class Game {
                 new Letter(new Enigme("Final question: did you like this game? ;-) 1. loved it 2. nope",
                         jungle, "1", new Key(jungle, arrival)), jungle));
 
+        CommandTeleport cmdTeleport = new CommandTeleport();
+        registry.registerCommand(cmdTeleport);
+
     }
 
     public void run() {
@@ -146,7 +150,7 @@ public class Game {
         String choice = scanner.nextLine();
 
         if (choice.equals("2")) {
-            this.getCmdSave().readPastCmd(this);
+            //this.getCmdSave().readPastCmd(this);
         }
 
         while (true) {
@@ -215,12 +219,10 @@ public class Game {
         return this.currentEnigme;
     }
 
-    public CommandSave getCmdSave() {
-        return (CommandSave) this.registry.getCommand("save");
-    }
 
-    public CommandRegistry getRegistry() {
-        return this.registry;
+    public Zone getZoneByName(String zoneName) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getZoneByName'");
     }
 
 }

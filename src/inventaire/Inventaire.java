@@ -35,4 +35,14 @@ public class Inventaire {
         return null;
     }
 
+    
+    public boolean contains(String nomItem) {
+    for (Objet obj : objets) {
+        if (obj.getClass().getSimpleName().equalsIgnoreCase(nomItem)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 }

@@ -23,6 +23,7 @@ public class CommandRegistry {
             result = result + verb + " - " + description + "\n";
         }
         return result;
+       
     }
 
     public Map<String, Command> getCommands() {
