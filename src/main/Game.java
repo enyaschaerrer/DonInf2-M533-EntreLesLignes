@@ -220,9 +220,18 @@ public class Game {
     }
 
 
-    public Zone getZoneByName(String zoneName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getZoneByName'");
+    public Zone getZoneByName(String name) {
+    Zone[][] zones = worldMap.getZones(); 
+
+    for (int i = 0; i < zones.length; i++) {
+        for (int j = 0; j < zones[i].length; j++) {
+            if (zones[i][j].getName().equals(name)) {
+                return zones[i][j]; // Manquait le point-virgule
+            }
+        }
     }
+    return null;
+}
+
 
 }
