@@ -1,19 +1,20 @@
 package player;
 
 import inventaire.Inventaire;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.ArrayList;
+import java.util.List;
 import zone.Zone;
 
 public class Player {
 
     private Inventaire inventaire;
     private Zone currentZone;
-    private Set<String> visitedZones;
-    
+    private List<Zone> visitedZones;
+
     public Player(Inventaire inventaire) {
         this.inventaire = inventaire;
-        this.visitedZones = new HashSet<>();
+        this.visitedZones = new ArrayList<>();
     }
 
     public Inventaire getInventaire() {
@@ -31,19 +32,27 @@ public class Player {
     // pouvoir ajouter la zone actuel dans laquelle le joueur est
     public void setCurrentZone(Zone zone) {
         this.currentZone = zone;
-        if (zone != null) {
-           visitedZones.add(zone.getName()); 
+        if (!hasVisitedZone(zone.getName())) {
+            addVisitedZone(zone);
         }
 
     }
 
     public boolean hasVisitedZone(String zoneName) {
-        return visitedZones.contains(zoneName);
+        for (Zone z : visitedZones) {
+            if (z.getName().equalsIgnoreCase(zoneName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public Set<String> getVisitedZones() {
+    public List<Zone> getVisitedZones() {
         return visitedZones;
     }
 
+    public void addVisitedZone(Zone zone) {
+        this.visitedZones.add(zone);
+    }
 
 }
