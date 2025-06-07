@@ -17,7 +17,7 @@ public class CommandTeleport extends Command {
 
 
         if (args.length < 1) {
-            System.out.println("Usage : teleport <nom-de-zone>");
+            System.out.println("Usage : teleport <name-zone>");
             return;
         }
 
