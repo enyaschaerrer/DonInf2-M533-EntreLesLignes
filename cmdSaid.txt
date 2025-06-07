@@ -1,2 +1,24 @@
-map
 help
+map
+look
+take
+take object
+take letter
+say 3
+take key
+use key
+move east
+move south
+map
+look
+take crystal
+take letter
+say 1
+use key
+teleport
+teleport desert
+teleport <desert>
+move east
+map
+teleport desert
+teleport river
