@@ -1,11 +1,11 @@
 package commands;
 
-import zone.Zone;
-import worldmap.WorldMap;
 import main.Game;
 import player.Player;
 import utils.Array2Dprinter;
 import utils.IPrintable;
+import worldmap.WorldMap;
+import zone.Zone;
 
 public class CommandMap extends Command {
 
@@ -20,7 +20,7 @@ public class CommandMap extends Command {
 
         Zone[][] zones = worldMap.getZones();
 
-        IPrintable[][] printableMap = new IPrintable[zones.length][zones[0].length];
+        IPrintable[][] printableMap = new IPrintable[zones.length][zones[0].length]; // print map 
         for (int i = 0; i < zones.length; i++) {
             for (int j = 0; j < zones[i].length; j++) {
                 printableMap[i][j] = zones[i][j];
@@ -30,7 +30,7 @@ public class CommandMap extends Command {
         int playerRow = player.getCurrentZone().getX();
         int playerCol = player.getCurrentZone().getY();
 
-        // affiche carte avec la position du joueur
-        System.out.println(Array2Dprinter.print2DArray(printableMap, playerRow, playerCol));
+        
+        System.out.println(Array2Dprinter.print2DArray(printableMap, playerRow, playerCol)); // affiche carte avec position joueur
     }
 }

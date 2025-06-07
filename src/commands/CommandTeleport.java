@@ -15,8 +15,15 @@ public class CommandTeleport extends Command {
     public void execute(Game game, String[] args) {
         Player player = game.getPlayer();
 
-        if (!player.getInventaire().contains("Crystal")) {
-            System.out.println("You don't have the Crystal. It's impossible to teleport.");
+
+        if (args.length < 1) {
+            System.out.println("Usage : teleport <nom-de-zone>");
+            return;
+        }
+
+        if (!player.getInventaire().contains("crystal")) {
+            System.out.println("You don't have the crystal. It's impossible to teleport.");
+
             return;
         }
 
@@ -26,7 +33,7 @@ public class CommandTeleport extends Command {
         }
 
         String zoneName = args[1];
-        Zone destination = game.getZoneByName(zoneName); // Assure-toi que Game possède cette méthode
+        Zone destination = game.getZoneByName(zoneName); // Game possède cette méthode ? 
 
         if (destination == null) {
             System.out.println("Zone unknown : " + zoneName);

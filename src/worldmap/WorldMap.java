@@ -27,8 +27,8 @@ public class WorldMap {
         return zones;
     }
 
-    // retourne la zone voisine dans une direction donnée
-    public static Zone getAdjacentZone(Zone currentZone, String direction) {
+    
+    public static Zone getAdjacentZone(Zone currentZone, String direction) { // retourne la zone voisine dans une direction
         int currentRow = currentZone.getX();
         int currentCol = currentZone.getY();
 
@@ -47,6 +47,6 @@ public class WorldMap {
     }
 
     public static Zone getStartingZone() {
-        return getZone(0, 0); // Position de départ
+        return getZone(0, 0); // Pos. de départ
     }
 }

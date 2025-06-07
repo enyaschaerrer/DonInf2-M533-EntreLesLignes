@@ -24,7 +24,7 @@ public class CommandLook extends Command {
             System.out.println("In your game area there is ");
 
             for (Objet obj : this.zone.getObjets()) {
-                System.out.println(obj.inspect(obj));
+                System.out.println(obj.inspect(obj)); // donne tous les objets pour la zone.
             }
 
         }

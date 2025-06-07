@@ -64,7 +64,7 @@ public class Zone implements IPrintable {
     }
 
 
-    // code pour la liste d'objets qui sont dans les zones
+    // code pour la liste d'objets qui sont dans les zones ->
 
     public void addObjet(Objet objet) {
         objets.add(objet);

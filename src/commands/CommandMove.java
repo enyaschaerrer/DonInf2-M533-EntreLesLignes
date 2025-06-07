@@ -1,9 +1,9 @@
 package commands;
 
 import main.Game;
-import zone.Zone;
 import player.Player;
 import worldmap.WorldMap;
+import zone.Zone;
 
 public class CommandMove extends Command {
 
@@ -21,11 +21,11 @@ public class CommandMove extends Command {
 
         } else {
 
-            String direction = args[0].toLowerCase();
+            String direction = args[0].toLowerCase(); // met en lowerCase
             Player player = game.getPlayer();
-            Zone currentZone = player.getCurrentZone();
+            Zone currentZone = player.getCurrentZone(); 
 
-            Zone targetZone = WorldMap.getAdjacentZone(currentZone, direction);
+            Zone targetZone = WorldMap.getAdjacentZone(currentZone, direction); // get la zone adjacente a la présente zone
 
             if (targetZone == null) {
                 System.out.println("Impossible to move there.");

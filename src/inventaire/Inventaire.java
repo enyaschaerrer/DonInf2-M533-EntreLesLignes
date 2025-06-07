@@ -38,7 +38,7 @@ public class Inventaire {
     
     public boolean contains(String nomItem) {
     for (Objet obj : objets) {
-        if (obj.getClass().getSimpleName().equalsIgnoreCase(nomItem)) {
+        if (obj.getClass().getSimpleName().equalsIgnoreCase(nomItem)) { // vérifie que l'inventaire a l'objet "..." (genre clé ou crystal)
             return true;
         }
     }

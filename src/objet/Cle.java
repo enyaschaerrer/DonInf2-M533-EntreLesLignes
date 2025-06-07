@@ -8,9 +8,9 @@ public class Cle extends Objet {
         super(zone);
     }
 
-    public void unlockZone(Cle cle, Zone zone) {
+    public void unlockZone(Cle cle, Zone zone) { //elle doit être dans l'inventaire
 
- //elle doit être dans l'inventaire
+ 
 
 
         zone.unlock();
