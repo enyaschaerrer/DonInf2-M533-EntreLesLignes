@@ -27,13 +27,8 @@ public class CommandTeleport extends Command {
             return;
         }
 
-        if (args.length < 2) {
-            System.out.println("Usage : teleport <nom-de-zone>");
-            return;
-        }
-
-        String zoneName = args[1];
-        Zone destination = game.getZoneByName(zoneName); // Game possède cette méthode ? 
+        String zoneName = args[0];
+        Zone destination = game.getZoneByName(zoneName);
 
         if (destination == null) {
             System.out.println("Zone unknown : " + zoneName);
