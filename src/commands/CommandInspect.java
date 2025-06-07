@@ -21,7 +21,7 @@ public class CommandInspect extends Command {
 
 
         if (args.length == 0) {
-            System.out.println("Please specify which object you want to inspect. Forr example : > inspect letter");
+            System.out.println("Please specify which object you want to inspect. For example : > inspect letter");
 
             return;
         }
