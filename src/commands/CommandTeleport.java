@@ -1,5 +1,6 @@
 package commands;
 
+
 import main.Game;
 import player.Player;
 import zone.Zone;
@@ -14,35 +15,37 @@ public class CommandTeleport extends Command {
     public void execute(Game game, String[] args) {
         Player player = game.getPlayer();
 
+
         if (args.length < 1) {
             System.out.println("Usage : teleport <nom-de-zone>");
             return;
         }
 
-        if (!player.getInventaire().contains("Crystal")) {
-            System.out.println("You don't have the Crystal. It's impossible to teleport.");
+        if (!player.getInventaire().contains("crystal")) {
+            System.out.println("You don't have the crystal. It's impossible to teleport.");
+
             return;
         }
 
-        else {
-
-            String zoneName = args[0];
-            Zone destination = game.getZoneByName(zoneName);
-
-            if (destination == null) {
-                System.out.println("Zone unknown : " + zoneName);
-                return;
-            }
-
-            else if (!player.hasVisitedZone(zoneName)) {
-                System.out.println("You haven't visited this zone yet.");
-                return;
-
-            } else {
-                player.setCurrentZone(destination);
-                player.addVisitedZone(destination);
-                System.out.println("Teleportation to : " + destination.getName());
-            }
+        if (args.length < 2) {
+            System.out.println("Usage : teleport <nom-de-zone>");
+            return;
         }
+
+        String zoneName = args[1];
+        Zone destination = game.getZoneByName(zoneName); // Game possède cette méthode ? 
+
+        if (destination == null) {
+            System.out.println("Zone unknown : " + zoneName);
+            return;
+        }
+
+        if (!player.hasVisitedZone(zoneName)) {
+            System.out.println("You haven't visited this zone yet.");
+            return;
+        }
+
+        player.setCurrentZone(destination);
+        System.out.println("Teleportation to : " + destination.getName());
     }
 }

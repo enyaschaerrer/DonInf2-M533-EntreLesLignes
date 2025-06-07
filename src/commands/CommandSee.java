@@ -18,7 +18,7 @@ public class CommandSee extends Command {
 
     @Override
     public void execute(Game game, String[] args) {
-        //this.inventaire.displayInventaire();
+        
 
         Player player = game.getPlayer();
         Inventaire inventaire = player.getInventaire();
@@ -28,7 +28,7 @@ public class CommandSee extends Command {
         } else {
             System.out.println("You have:");
             for (Objet objet : inventaire.getObjets()) {
-                System.out.println("- " + objet.inspect(objet)); // Affiche la description de chaque objet
+                System.out.println("- " + objet.inspect(objet)); // Affiche description de chaque objet
             }
         }
     }

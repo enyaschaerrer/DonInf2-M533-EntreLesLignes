@@ -8,7 +8,7 @@ public class CommandRegistry {
     private Map<String, Command> commands = new HashMap<>();
 
     public void registerCommand(Command command) {
-        commands.put(command.getVerb(), command);
+        commands.put(command.getVerb(), command); // verbe de la commande et la commande
     }
 
     public Command getCommand(String verb) {

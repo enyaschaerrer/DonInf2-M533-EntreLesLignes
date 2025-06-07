@@ -11,12 +11,10 @@ import commands.CommandSave;
 import commands.CommandSay;
 import commands.CommandSee;
 import commands.CommandTake;
-import commands.CommandTeleport;
 import commands.CommandUse;
 import enigme.Enigme;
 import inventaire.Inventaire;
 import java.util.*;
-
 import objet.Crystal;
 import objet.Key;
 import objet.Letter;
@@ -154,21 +152,23 @@ public class Game {
         while (true) {
             System.out.print("> ");
 
-            // .trim() enlève les espaces en début et fin de la saisie
-            String input = scanner.nextLine().trim();
+            
+            String input = scanner.nextLine().trim(); // .trim() enlève les espaces en début et fin de la saisie
             if (input.isEmpty())
                 continue;
 
-            // sépare saisie en plusieurs mots
-            String[] parts = input.split("\\s+");
+         
+            String[] parts = input.split("\\s+");    // sépare saisie en plusieurs mots
 
-            // nom de la commande (move/ map...)
-            String commandName = parts[0].toLowerCase();
-            String[] args = Arrays.copyOfRange(parts, 1, parts.length);
+           
+            String commandName = parts[0].toLowerCase();  // nom de la commande (move/ map...)
+            String[] args = Arrays.copyOfRange(parts, 1, parts.length); 
 
             Command command = registry.getCommand(commandName);
 
-            // si commande ok
+
+            // a revoir - OK 
+
             if (command != null) {
 
                 command.execute(this, args);

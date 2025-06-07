@@ -19,8 +19,10 @@ public class CommandInspect extends Command {
 
         Player player = game.getPlayer(); // récupère le joueur
 
+
         if (args.length == 0) {
-            System.out.println("Veuillez spécifier le nom de l'objet à inspecter. Exemple : inspect Lettre");
+            System.out.println("Please sepcify which object you want to inspect. FOr example : inspect letter");
+
             return;
         }
 
@@ -28,13 +30,14 @@ public class CommandInspect extends Command {
         Objet object = player.getCurrentZone().getObjetByName(objectName); // cherche l'objet dans l'inventaire
 
          if (object == null) {
-            System.out.println("Aucun objet nommé '" + objectName + "' n'est présent dans cette zone.");
+            System.out.println("No object named '" + objectName + "' is available in this zone.");
+
             return;
         }
 
         if (object instanceof Key) {
             Key k = (Key) object;
-            System.out.println("The object is a key for the area : " + k.getZoneItUnlocks().getName());
+            System.out.println("The object is a key for the area : " + k.getZoneItUnlocks().getName()); // clé pour la zone qui va s'unlock
         } else if (object instanceof Letter) {
             Letter l = (Letter) object;
             System.out.println(
